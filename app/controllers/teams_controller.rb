@@ -1,7 +1,4 @@
 class TeamsController < ActionController::Base
+  inherit_resources
   layout 'application'
-
-  def index
-  end
-
 end
