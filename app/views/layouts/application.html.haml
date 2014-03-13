@@ -6,11 +6,12 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = yield
-  %hr{ style: "border: 1px solid #ccc;" }
+    .container
+      = yield
+  .footer
     %center
-      %strong contribute!
-      github.com/neumanrq/kneipenquiz
+      %strong feel free to contribute
+      = link_to 'on github', 'http://github.com/neumanrq/kneipenquiz'
     %center
-      © Robin Neumann | 2014
+      © rbn | 2014
 
