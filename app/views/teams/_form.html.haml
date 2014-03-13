@@ -1,3 +1,7 @@
-= f.error_notification
-= f.input :title
-= f.submit 'Speichern', class: 'button'
+%center
+  %h2 Team hinzufügen
+  = f.error_notification
+  %p= f.input :title, class: 'col-md-2'
+  %p= f.submit 'Speichern', class: 'btn btn-info'
+  %p
+    = link_to 'zurück', teams_path

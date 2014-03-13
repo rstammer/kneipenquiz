@@ -1,12 +1,14 @@
-= link_to '', new_team_path do
-  %i.glyphicon.glyphicon-plus  
 %center
   %h2 Teams
+
+  = link_to new_team_path do
+    %i.glyphicon.glyphicon-plus
+    Team eintragen
   %ul
     - collection.each do |team|
       %li
         %h5= render team.title
         = link_to '', team_path(team), method: :delete do
           %i.glyphicon.glyphicon-trash
-          
+
   = link_to 'zurück', games_path
