@@ -11,3 +11,4 @@ gem 'shoulda', '~> 3.3.2'
 gem 'rspec-rails', '~> 2.0'
 gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'rails_serve_static_assets'
