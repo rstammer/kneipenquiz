@@ -1,3 +1,31 @@
 %center
-  %h2 Fragenkatalog
-  = link_to 'zurück', games_path
+  .head
+    %h1
+      %strong Fragen
+
+  .nav-link
+    = link_to new_question_path do
+      %i.glyphicon.glyphicon-plus
+      Frage eintragen
+  %table
+    %tr.table-head
+      %th.name Name
+      %th Gesamtscore
+      %th ... im letzten Spiel
+      %th Durchschnitt
+      %th
+    - collection.each do |team|
+      %tr
+        %td
+          %h4= team.title
+        %td
+          42
+        %td
+          3.14159
+        %td
+          2.7828
+        %td
+          = link_to team, method: :delete do
+            %i.glyphicon.glyphicon-trash
+
+  = link_to 'zurück',games_path, class: 'btn btn-primary'

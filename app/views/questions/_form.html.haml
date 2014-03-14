@@ -1,0 +1,8 @@
+%center
+  %h2 Frage eingeben
+  = f.error_notification
+  %p= f.input :content, class: 'col-md-2'
+  %p= f.input :answer, class: 'col-md-2'
+  %p= f.submit 'Speichern', class: 'btn btn-info'
+  %p
+    = link_to 'zurück',questions_path
