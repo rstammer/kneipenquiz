@@ -9,23 +9,21 @@
       Neue Frage eintragen
   %table
     %tr.table-head
-      %th.name Name
-      %th Gesamtscore
-      %th ... im letzten Spiel
-      %th Durchschnitt
-      %th
-    - collection.each do |team|
+      %th #
+      %th Titel
+      %th Tags
+    - collection.each do |question|
       %tr
         %td
-          %h4= team.title
+          %h4= question.id
         %td
-          42
+          Schnitzel-Frage
         %td
-          3.14159
+          - ["Fleisch", "Oekologie", "unbenutzt"].each do |tag|
+            .badge
+              = tag
         %td
-          2.7828
-        %td
-          = link_to team, method: :delete do
+          = link_to question, method: :delete do
             %i.glyphicon.glyphicon-trash
 
   = link_to 'zurück',games_path, class: 'btn btn-primary'
