@@ -4,10 +4,7 @@
       %strong Teams
 
   .nav-link
-    = link_to new_team_path do
-      %i.glyphicon.glyphicon-plus
-      Team eintragen
-  %table
+  %table.table.table-hover.table-striped
     %tr.table-head
       %th.name Name
       %th Gesamtscore
@@ -27,5 +24,10 @@
         %td
           = link_to team, method: :delete do
             %i.glyphicon.glyphicon-trash
+    %tr
+      %td{ colspan: 6 }
+        = link_to new_team_path do
+          %i.glyphicon.glyphicon-plus
+
 
   = link_to 'zurück',games_path, class: 'btn btn-primary'

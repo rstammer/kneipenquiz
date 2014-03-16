@@ -1,7 +1,2 @@
-%center
-  %h2 Team hinzufügen
-  = f.error_notification
-  %p= f.input :title, class: 'col-md-2'
-  %p= f.submit 'Speichern', class: 'btn btn-info'
-  %p
-    = link_to 'zurück', teams_path
+%td.input-group{ colspan: 6 }
+  = f.input :title, class: 'form-control' , input_html: { size: 16 }, label: false
