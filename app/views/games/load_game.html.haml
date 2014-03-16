@@ -1,0 +1,10 @@
+%center
+  .head
+    %h1
+      %strong Spiel laden
+  .list
+    %ul.list-unstyled
+      %li
+        = select_tag :game, options_for_select(['Spiel 1: Fischers Fritze fischt frische Blaukraut','Spiel 2: Brautkleid bleibt Brautkleid und Fischers fritze fischt Blaukraut'])
+      %li
+        = link_to 'Nun aber los!', '' , class: 'btn btn-large btn-danger'
