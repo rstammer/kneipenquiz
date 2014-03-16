@@ -1,11 +1,27 @@
 %center
   .head
     %h1
-      %strong Teams
+      %strong
+        %i.glyphicon.glyphicon-user
+        Teams
 
-  .nav-link
+  %ul.nav.nav-tabs
+    %li.active
+      = link_to teams_path do
+        %i.glyphicon.glyphicon-dashboard
+        Uebersicht
+    %li
+      = link_to '' do
+        %i.glyphicon.glyphicon-tasks
+        Spiele
+    %li
+      = link_to new_team_path do
+        %i.glyphicon.glyphicon-plus
+        Spielergebnis eintragen
+
+
   %table.table.table-hover.table-striped
-    %tr.table-head
+    %tr.custom-head
       %th.name Name
       %th Gesamtscore
       %th ... im letzten Spiel
@@ -21,13 +37,15 @@
           3.14159
         %td
           2.7828
-        %td
-          = link_to team, method: :delete do
-            %i.glyphicon.glyphicon-trash
+        %td.actions
+          .pull-right
+            = link_to team, method: :delete do
+              %i.glyphicon.glyphicon-trash
     %tr
       %td{ colspan: 6 }
         = link_to new_team_path do
           %i.glyphicon.glyphicon-plus
+          Neues Team
 
 
   = link_to 'zurück',games_path, class: 'btn btn-primary'

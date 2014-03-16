@@ -1,12 +1,28 @@
 %center
   .head
     %h1
-      %strong Teams
+      %strong
+        %i.glyphicon.glyphicon-user
+        Teams
+
+  %ul.nav.nav-tabs
+    %li.active
+      = link_to teams_path do
+        %i.glyphicon.glyphicon-dashboard
+        Uebersicht
+    %li
+      = link_to '' do
+        %i.glyphicon.glyphicon-tasks
+        Spiele
+    %li
+      = link_to new_team_path do
+        %i.glyphicon.glyphicon-plus
+        Spielergebnis eintragen
 
   = simple_form_for resource, { id: 'team_form'} do |f|
     %table.table.table-hover
       %tr.table-head
-        %th.name Name
+        %th Name
         %th Gesamtscore
         %th ... im letzten Spiel
         %th Durchschnitt
@@ -21,9 +37,10 @@
             3.14159
           %td
             2.7828
-          %td
-            = link_to team, method: :delete do
-              %i.glyphicon.glyphicon-trash
+          %td.actions
+            .pull-right
+              = link_to team, method: :delete do
+                %i.glyphicon.glyphicon-trash
       %tr
         = render 'form', { f: f }
 

@@ -1,4 +1,4 @@
-class TeamsController < ActionController::Base
+class ResultsController < ActionController::Base
   inherit_resources
   layout 'application'
 
@@ -10,11 +10,7 @@ class TeamsController < ActionController::Base
 
   private
 
-  def collection
-    @teams ||= Team.all
-  end
-
   def permitted_params
-    params.permit(team: [:title])
+    params.permit(result: [:round_one, :round_two, :round_three, :round_four, :total_score, :team_id, :game_id])
   end
 end
