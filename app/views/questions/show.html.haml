@@ -1,0 +1,12 @@
+%div
+  .head
+    %h2
+      %strong= resource.content
+  .list
+    %ul.list-unstyled
+      %li
+        %h4 Antwort:
+      %li
+        %p= resource.answer
+
+  = link_to 'zurück zum Fragenkatalog', questions_path, class: 'btn btn-primary'

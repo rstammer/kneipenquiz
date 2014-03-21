@@ -3,27 +3,34 @@
     %h1
       %strong Fragenkatalog
 
-  .nav-link
-    = link_to new_question_path do
-      %i.glyphicon.glyphicon-plus
-      Neue Frage eintragen
-  %table
-    %tr.table-head
-      %th #
-      %th Titel
-      %th Tags
+  %ul.nav.nav-tabs
+    %li.active
+      = link_to questions_path do
+        %i.glyphicon.glyphicon-dashboard
+        Uebersicht
+
+  %table.table.table-hover.table-striped
+    %tr.custom-head
+      %th.name Titel
+      %th{ colspan: 4 } Tags
     - collection.each do |question|
       %tr
         %td
-          %h4= question.id
-        %td
-          Schnitzel-Frage
-        %td
-          - ["Fleisch", "Oekologie", "unbenutzt"].each do |tag|
+          %strong
+            = link_to question.title, question_path(question)
+        %td{ colspan: 3 }
+          - ["Musik", "Zahlenspiele", "Fun", "unbenutzt"].each do |tag|
             .badge
               = tag
-        %td
-          = link_to question, method: :delete do
-            %i.glyphicon.glyphicon-trash
+        %td.actions
+          .pull-right
+            = link_to question, method: :delete do
+              %i.glyphicon.glyphicon-trash
+    %tr
+      %td{ colspan: 6 }
+        = link_to new_question_path do
+          %i.glyphicon.glyphicon-plus
+          Neues Frage
+
 
   = link_to 'zurück',games_path, class: 'btn btn-primary'

@@ -20,9 +20,9 @@
         Spielergebnis eintragen
 
   = simple_form_for resource, { id: 'team_form'} do |f|
-    %table.table.table-hover
-      %tr.table-head
-        %th Name
+    %table.table.table-hover.table-striped
+      %tr.custom-head
+        %th.name Name
         %th Gesamtscore
         %th ... im letzten Spiel
         %th Durchschnitt
@@ -30,13 +30,17 @@
       - collection.each do |team|
         %tr
           %td
-            %h4= team.title
+            %strong
+              = team.title
           %td
-            42
+            .badge
+              42
           %td
-            3.14159
+            .badge
+              3.14159
           %td
-            2.7828
+            .badge
+              2.7828
           %td.actions
             .pull-right
               = link_to team, method: :delete do
