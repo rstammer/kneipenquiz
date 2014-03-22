@@ -3,8 +3,17 @@
     %h1
       %strong Spiel laden
   .list
+    %h4 Diese Spiele sind gespeichert:
     %ul.list-unstyled
-      %li
-        = select_tag :game, options_for_select(['Spiel 1: Fischers Fritze fischt frische Blaukraut','Spiel 2: Brautkleid bleibt Brautkleid und Fischers fritze fischt Blaukraut'])
-      %li
-        = link_to 'Nun aber los!', '' , class: 'btn btn-large btn-danger'
+      - Game.all.each do |game|
+        %li
+          = game.title
+
+
+%center
+  %h4 Das folgende Spiel JETZT starten:
+  = select_tag :game, options_for_select(options_for_game)
+
+%center
+  = link_to 'Ich will zu meiner Mami!', games_path , class: 'btn btn-large btn-success'
+  = link_to 'Nun aber los!', '' , class: 'btn btn-large btn-danger'

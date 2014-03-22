@@ -1,5 +1,9 @@
 module ApplicationHelper
   def options_for_questions
-    Question.all.map(&:title)
+    Question.all.map { |q| [q.title, q.id] }
+  end
+
+  def options_for_game
+    Game.all.map { |g| [g.title, g.id]}
   end
 end

@@ -2,39 +2,46 @@
   .head
     %h1
       %strong Spiel vorbereiten
-%p
-  Ein Spiel besteht aus 4 Runden mit je 8 Fragen. Für das Zwischenspiel kannst Du Instruktionen
-  eintragen, die dann angezeigt werden
 
-.col-md-12
-  .col-md-6
-    %h2 Runde 1
-    %ul.list-unstyled
-      - (1..8).each do |n|
-        %li
-          = select_tag :question, options_for_select(options_for_questions)
-  .col-md-6
-    %h2 Runde 2
-    %ul.list-unstyled
-      - (1..8).each do |n|
-        %li
-          = select_tag :question, options_for_select(options_for_questions)
-.col-md-12
-  .col-md-6
-    %h2 Runde 3
-    %ul.list-unstyled
-      - (1..8).each do |n|
-        %li
-          = select_tag :question, options_for_select(options_for_questions)
+= simple_form_for resource, { id: 'games_form'} do |f|
+  .col-md-12
+    %center
+      .form-group
+        %label.form-label Motto:
+        = f.text_field :title
+      .form-group
+        %label.form-label Termin:
+        = f.date_select :expected_date
 
-  .col-md-6
-    %h2 Runde 4
-    %ul.list-unstyled
-      - (1..8).each do |n|
-        %li
-          = select_tag :question, options_for_select(options_for_questions)
-.col-md-12
-  %h2 Anzeigetext für das Zwischenspiel
-  = text_field_tag :intermezzo
-%center.col-md-12
-  = link_to 'zurück zum Haupmenü', games_path, class: 'btn btn-info'
+    .col-md-6
+      %h2 Runde 1
+      %ul.list-unstyled
+        - (1..8).each do |n|
+          %li
+            = select_tag "question#{n}", options_for_select(options_for_questions)
+    .col-md-6
+      %h2 Runde 2
+      %ul.list-unstyled
+        - (9..16).each do |n|
+          %li
+            = select_tag  "question#{n}", options_for_select(options_for_questions)
+  .col-md-12
+    .col-md-6
+      %h2 Runde 3
+      %ul.list-unstyled
+        - (17..24).each do |n|
+          %li
+            = select_tag  "question#{n}", options_for_select(options_for_questions)
+
+    .col-md-6
+      %h2 Runde 4
+      %ul.list-unstyled
+        - (25..32).each do |n|
+          %li
+            = select_tag  "question#{n}", options_for_select(options_for_questions)
+  .col-md-12
+    %h2 Anzeigetext für das Zwischenspiel
+    = text_field_tag :intermezzo
+  %center.col-md-12
+    = f.submit 'Speichern', class: 'btn btn-info'
+    = link_to 'zurück zum Haupmenü', games_path, class: 'btn btn-info'

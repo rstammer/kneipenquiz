@@ -1,0 +1,18 @@
+%center
+  .head
+    %h1
+      %strong Kneipenquiz-Spiel
+    %h2
+      "
+      = resource.title
+      "
+
+.col-md-12
+  .col-md-6
+    %h2 Runde 1
+    %ul.list-unstyled
+      - @round1.each do |question|
+        %li
+          = question.title
+  %center.col-md-12
+    = link_to 'zurück zum Haupmenü', games_path, class: 'btn btn-info'
