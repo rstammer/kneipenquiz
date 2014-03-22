@@ -1,19 +1,28 @@
-%center
-  .head
-    %h1
-      %strong Spiel laden
+.col-md-12
+  %center
+    .head
+      %h1
+        %strong Ready to rumble?
+
+.col-md-12
   .list
     %h4 Diese Spiele sind gespeichert:
     %ul.list-unstyled
       - Game.all.each do |game|
         %li
-          = game.title
+          = game.title + " (" + game.expected_date.strftime("%d.%m.%Y") + ") "
+          = link_to edit_game_path(game) do
+            %i.glyphicon.glyphicon-pencil
+          = link_to game_path(game), method: :delete do
+            %i.glyphicon.glyphicon-trash
 
+.col-md-12
+  %center
+    %h4 Das folgende Spiel JETZT starten:
+    %p
+      = select_tag :game, options_for_select(options_for_game)
 
-%center
-  %h4 Das folgende Spiel JETZT starten:
-  = select_tag :game, options_for_select(options_for_game)
-
-%center
-  = link_to 'Ich will zu meiner Mami!', games_path , class: 'btn btn-large btn-success'
-  = link_to 'Nun aber los!', '' , class: 'btn btn-large btn-danger'
+.col-md-12
+  %center
+    = link_to 'Ich will zu meiner Mami!', games_path , class: 'btn btn-large btn-success'
+    = link_to 'Nun aber los!', '' , class: 'btn btn-large btn-danger'

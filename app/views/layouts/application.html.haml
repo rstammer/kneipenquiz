@@ -11,7 +11,7 @@
       = yield
   .footer
     - flash.each do |key, value|
-      = content_ta :div, value, class: "flash #{key}"
+      = content_tag :center, value, class: "flash #{key}"
 
     %center
       %strong feel free to contribute
