@@ -2,20 +2,39 @@
   .head
     %h1
       %strong Spiel vorbereiten
-
-
 %p
   Ein Spiel besteht aus 4 Runden mit je 8 Fragen. Für das Zwischenspiel kannst Du Instruktionen
   eintragen, die dann angezeigt werden
 
-%ul.unstyled
-  %li
+.col-md-12
+  .col-md-6
     %h2 Runde 1
-  %li
+    %ul.list-unstyled
+      - (1..8).each do |n|
+        %li
+          = select_tag :question, options_for_select(options_for_questions)
+  .col-md-6
     %h2 Runde 2
-  %li
-    %h2 Zwischenspiel
-  %li
+    %ul.list-unstyled
+      - (1..8).each do |n|
+        %li
+          = select_tag :question, options_for_select(options_for_questions)
+.col-md-12
+  .col-md-6
     %h2 Runde 3
-  %li
+    %ul.list-unstyled
+      - (1..8).each do |n|
+        %li
+          = select_tag :question, options_for_select(options_for_questions)
+
+  .col-md-6
     %h2 Runde 4
+    %ul.list-unstyled
+      - (1..8).each do |n|
+        %li
+          = select_tag :question, options_for_select(options_for_questions)
+.col-md-12
+  %h2 Anzeigetext für das Zwischenspiel
+  = text_field_tag :intermezzo
+%center.col-md-12
+  = link_to 'zurück zum Haupmenü', games_path, class: 'btn btn-info'
