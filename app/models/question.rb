@@ -1,5 +1,11 @@
 class Question < ActiveRecord::Base
 
+  # associations
+  #
+  #
+
+  belongs_to :game
+
   # validations
   #
   #
