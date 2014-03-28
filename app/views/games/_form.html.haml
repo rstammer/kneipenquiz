@@ -1,39 +1,48 @@
-.col-md-12
-  %center
-    .form-group
-      %label.form-label Motto:
-      = f.text_field :title
-    .form-group
-      %label.form-label Termin:
-      = f.date_select :expected_date
+.row
+  .col-md-12
+    %center
+      .form-group
+        %label.form-label Motto:
+        = f.text_field :title
+      .form-group
+        %label.form-label Termin:
+        = f.date_select :expected_date
 
-  .col-md-6
-    %h2 Runde 1
-    %ul.list-unstyled
-      - (1..8).each do |n|
-        %li
-          = select_tag "question#{n}", options_for_select(options_for_questions)
-  .col-md-6
-    %h2 Runde 2
-    %ul.list-unstyled
-      - (9..16).each do |n|
-        %li
-          = select_tag  "question#{n}", options_for_select(options_for_questions)
-.col-md-12
-  .form-group
-    %label.form-label Anzeigetext für das Zwischenspiel
-    = f.text_area :intermezzo
-.col-md-12
-  .col-md-6
-    %h2 Runde 3
-    %ul.list-unstyled
-      - (17..24).each do |n|
-        %li
-          = select_tag  "question#{n}", options_for_select(options_for_questions)
-
-  .col-md-6
-    %h2 Runde 4
-    %ul.list-unstyled
-      - (25..32).each do |n|
-        %li
-          = select_tag  "question#{n}", options_for_select(options_for_questions)
+.row
+  .col-md-12
+    %center
+      %h2 Runde 1
+      %ul.list-unstyled
+        - (1..8).each do |n|
+          %li
+            = select_tag "question#{n}", options_for_select(options_for_questions)
+.row
+  .col-md-12
+    %center
+      %h2 Runde 2
+      %ul.list-unstyled
+        - (9..16).each do |n|
+          %li
+            = select_tag  "question#{n}", options_for_select(options_for_questions)
+.row
+  .col-md-12.margin-top
+    .form-group
+      %center
+        %label.form-label Anzeigetext für das Zwischenspiel
+      = f.text_area :intermezzo, rows: 6, class: 'form-control'
+.row
+  .col-md-12.margin-top
+    %center
+      %h2 Runde 3
+      %ul.list-unstyled
+        - (17..24).each do |n|
+          %li
+            = select_tag  "question#{n}", options_for_select(options_for_questions)
+.row
+  .col-md-12
+    %center
+      %h2 Runde 4
+      %ul.list-unstyled
+        - (25..32).each do |n|
+          %li
+            = select_tag  "question#{n}", options_for_select(options_for_questions)
