@@ -1,8 +1,17 @@
-%center
-  = f.error_notification
-  %p= f.input :title
-  %p= f.input :content, class: 'col-md-2'
-  %p= f.input :answer, class: 'col-md-2'
-  %p= f.submit 'Speichern', class: 'btn btn-info'
-  %p
-    = link_to 'zurück',questions_path
+.row
+  .col-md-12
+    = f.error_notification
+  .form-group
+    %label.form-label Titel
+    = f.text_area :title, rows: 1, class: 'form-control'
+  .form-group
+    %label.form-label Frage
+    = f.text_area :content, rows: 3, class: 'form-control'
+  .form-group
+    %label.form-label Antwort
+    = f.text_area :answer, rows: 3, class: 'form-control'
+.row
+  .col-md-12
+    %center
+      = link_to 'zurück', questions_path, class: 'btn btn-warning'
+      = f.submit 'Speichern', class: 'btn btn-info'

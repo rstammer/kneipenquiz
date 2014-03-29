@@ -18,25 +18,10 @@ class GamesController < ActionController::Base
     redirect_to games_path, notice: 'Alright, Dude. Spiel ist im Kasten!'
   end
 
-  def show
-    @round1 = resource.questions.where(round: '1')
-    @round2 = resource.questions.where(round: '2')
-    @round3 = resource.questions.where(round: '3')
-    @round4 = resource.questions.where(round: '4')
-    show!
+  def load_game
   end
 
   def start
-    @game = Game.find(params[:id])
-
-    if @game
-      render :text => 'YEAH'
-    else
-      redirect_to load_game_path, alert: 'Konnte Spiel nicht laden!'
-    end
-  end
-
-  def load_game
   end
 
   def round_one
@@ -58,6 +43,10 @@ class GamesController < ActionController::Base
   end
 
   private
+
+  def resource
+    @game ||= Game.find(params[:id])
+  end
 
   def permitted_params
     params.permit(game: [
