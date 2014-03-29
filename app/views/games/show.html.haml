@@ -5,7 +5,20 @@
 
 .row
   .col-md-12
+    %ul.list-unstyled
+      - (1..4).each do |n|
+        %li
+          %center
+            %h2
+              Runde #{n}
+          %ul.nav.nav-pills.nav-justified
+            %li= link_to 'Ergebnisse eintragen'
+            %li= link_to 'Auswertung für die Meute anzeigen'
 
+.row
+  .col-md-12
+    %center
+      = link_to 'Siegerehrung', '', class: 'btn btn-xl jumbotron btn-success'
 .row
   .col-md-12
     %center
