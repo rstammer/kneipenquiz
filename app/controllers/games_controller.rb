@@ -27,7 +27,6 @@ class GamesController < ActionController::Base
   end
 
   def start
-    raise params.inspect
     @game = Game.find(params[:id])
 
     if @game

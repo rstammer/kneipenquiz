@@ -6,18 +6,18 @@
 
 .col-md-12
   .list
-    %h4 Diese Spiele sind gespeichert:
     %ul.list-unstyled
       - Game.all.each do |game|
-        %li
+        %li.game
           = game.title + " (" + game.expected_date.strftime("%d.%m.%Y") + ") "
-          = link_to edit_game_path(game) do
-            %i.glyphicon.glyphicon-pencil
-          = link_to game_path(game), method: :delete do
-            %i.glyphicon.glyphicon-trash
-          = link_to start_game_path(game) do
-            %i.glyphicon.glyphicon-play
-            JETZT spielen
+          .pull-right
+            = link_to edit_game_path(game) do
+              %i.glyphicon.glyphicon-pencil
+            = link_to game_path(game), method: :delete do
+              %i.glyphicon.glyphicon-trash
+            = link_to start_game_path(game) do
+              %i.glyphicon.glyphicon-play
+              JETZT spielen
 
 
 .col-md-12
