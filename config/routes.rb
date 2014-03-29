@@ -2,6 +2,7 @@ Kneipenquiz::Application.routes.draw do
   root to: 'games#index'
 
   resources :games do
+    get :start, on: :member
     get :load_game, on: :collection
     get :round_one, on: :member
     get :round_two, on: :member

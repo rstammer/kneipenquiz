@@ -15,14 +15,11 @@
             %i.glyphicon.glyphicon-pencil
           = link_to game_path(game), method: :delete do
             %i.glyphicon.glyphicon-trash
+          = link_to start_game_path(game) do
+            %i.glyphicon.glyphicon-play
+            JETZT spielen
+
 
 .col-md-12
   %center
-    %h4 Das folgende Spiel JETZT starten:
-    %p
-      = select_tag :game, options_for_select(options_for_game)
-
-.col-md-12
-  %center
-    = link_to 'Ich will zu meiner Mami!', game_path() , class: 'btn btn-large btn-success'
-    = link_to 'Nun aber los!', '' , class: 'btn btn-large btn-danger'
+    = link_to 'Ich will zu meiner Mami!', games_path , class: 'btn btn-large btn-success'

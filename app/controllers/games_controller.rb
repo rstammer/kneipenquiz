@@ -26,6 +26,17 @@ class GamesController < ActionController::Base
     show!
   end
 
+  def start
+    raise params.inspect
+    @game = Game.find(params[:id])
+
+    if @game
+      render :text => 'YEAH'
+    else
+      redirect_to load_game_path, alert: 'Konnte Spiel nicht laden!'
+    end
+  end
+
   def load_game
   end
 
