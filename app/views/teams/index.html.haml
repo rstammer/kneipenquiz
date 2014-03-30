@@ -14,10 +14,6 @@
       = link_to '' do
         %i.glyphicon.glyphicon-tasks
         Spiele
-    %li
-      = link_to new_team_path do
-        %i.glyphicon.glyphicon-plus
-        Spielergebnis eintragen
 
   %table.table.table-hover.table-striped
     %tr.custom-head
@@ -33,16 +29,16 @@
             = team.title
         %td
           .badge
-            42
+            = 0
         %td
           .badge
-            3.14159
+            = 0
         %td
           .badge
             2.7828
         %td.actions
           .pull-right
-            = link_to team, method: :delete do
+            = link_to team, method: :delete, confirm: 'Bist du wirklich sicher? Das ist umkehbar...' do
               %i.glyphicon.glyphicon-trash
     %tr
       %td{ colspan: 6 }

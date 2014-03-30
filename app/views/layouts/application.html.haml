@@ -9,13 +9,17 @@
   %body
     .container
       = yield
+      - if false
+        %center.jumbotron
+          %h1 Sorry - aber hier ist Geheimniskrämerei.
   .footer
-    - flash.each do |key, value|
-      = content_tag :center, value, class: "flash #{key}"
-
     %center
       %strong feel free to contribute
       = link_to 'on github', 'http://github.com/neumanrq/kneipenquiz'
     %center
       © rbn | 2014
+    = render 'shared/flash', notice: notice, alert: alert
+    .pull-right
+      - if user_signed_in?
+        = link_to 'Logout', destroy_user_session_path, method: :delete
 

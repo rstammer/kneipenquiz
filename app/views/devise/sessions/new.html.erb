@@ -1,0 +1,26 @@
+<div class='col-md-12'>
+  <center>
+    <h2>Dude, wer bist du?</h2>
+  </center>
+  <div class='box-devise'>
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal'}) do |f| %>
+      <div class="form-horizontal">
+        <div class="form-group">
+          <%= f.text_field :email, :placeholder => 'E-Mail', :required => false, :autofocus => true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password, :placeholder => 'Passwort', :required => false %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <center>
+          <%= f.button :submit, "Login", :class => "btn-devise btn btn-primary" %>
+        </center>
+        <%= render "devise/shared/links" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

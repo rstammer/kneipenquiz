@@ -10,4 +10,4 @@
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
 
-Kneipenquiz::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || 30 * '42'
+Kneipenquiz::Application.config.secret_key_base = ENV['SECRET_KEY_BASE'] || 'sdkflfjakjhkjfqahfq3487r19309134qeofjqlkj1394r134uk3jf134u1034riü4pkfkljf891744314r91304801834r'

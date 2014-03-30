@@ -1,6 +1,7 @@
 class ResultsController < ActionController::Base
   inherit_resources
   layout 'application'
+  before_action :authenticate_user!
 
   def create
     build_resource
