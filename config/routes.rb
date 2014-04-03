@@ -11,6 +11,7 @@ Kneipenquiz::Application.routes.draw do
     get :round_four, on: :member
   end
 
+  resources :category_mappings
   resources :questions
   resources :teams
 end

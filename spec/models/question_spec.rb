@@ -13,10 +13,11 @@ describe Question do
 
   context 'with associations' do
     it { expect(subject).to belong_to :game }
+    it { expect(subject).to have_many :categories }
   end
 
   context 'with validations' do
     it { expect(subject).to validate_presence_of(:answer) }
-    it { expect(subject).to validate_presence_of(:answer) }
+    it { expect(subject).to validate_presence_of(:typus) }
   end
 end

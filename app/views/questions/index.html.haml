@@ -3,38 +3,56 @@
     %h1
       %strong Fragenkatalog
 
-  %ul.nav.nav-tabs
-    %li.active
-      = link_to questions_path do
-        %i.glyphicon.glyphicon-dashboard
-        Uebersicht
+.row
+  .col-md-12
+    %ul.nav.nav-tabs
+      %li.active
+        = link_to questions_path do
+          %i.glyphicon.glyphicon-dashboard
+          Uebersicht
 
-  %table.table.table-hover.table-striped
-    %tr.custom-head
-      %th.name{ colspan: 3 } Titel
-      %th Tags
-      %th Typ
-    - collection.each do |question|
-      %tr
-        %td
-          %strong
-            = link_to question.title, question_path(question)
-        %td{ colspan: 3 }
-          - ["Musik", "Zahlenspiele", "Fun", "unbenutzt"].each do |tag|
+    %table.table.table-hover.table-striped
+      %tr.custom-head
+        %th.name{ colspan: 3 } Titel
+        %th Kategorien
+        %th
+        %th Typ
+      - collection.each do |question|
+        %tr
+          %td
+            %strong
+              = link_to question.title, question_path(question)
+          %td{ colspan: 3 }
+            - question.category_mappings.each do |cm|
+              .label.label-success
+                = cm.category.title
+
+          %td
+            = simple_form_for CategoryMapping.new, method: :post do |f|
+              = hidden_field_tag "category_mapping[question_id]", question.id
+              = select_tag "category_mapping[category_id]", options_for_select(Category.all.map { |cat| [cat.title, cat.id] })
+              = f.submit 'hinzufügen'
+          %td
             .badge
-              = tag
-        %td
-          .badge
-            = question.typus
-        %td.actions
-          .pull-right
-            = link_to question, method: :delete do
-              %i.glyphicon.glyphicon-trash
-    %tr
-      %td{ colspan: 6 }
-        = link_to new_question_path do
-          %i.glyphicon.glyphicon-plus
-          Neue Frage
+              = question.typus
+          %td.actions
+            .pull-right
+              = link_to question, method: :delete do
+                %i.glyphicon.glyphicon-trash
+      %tr
+        %td{ colspan: 6 }
+          = link_to new_question_path do
+            %i.glyphicon.glyphicon-plus
+            Neue Frage
+.row
+  .col-md-12
+    %h4 Mögliche Kategorien:
+    %ul.list-unstyled
+      - Category.all.each do |cat|
+        %li.margin-top
+          .label.label-success
+            = cat.title
 
-
-  = link_to 'zurück',games_path, class: 'btn btn-primary'
+.row
+  %center
+    = link_to 'zurück',games_path, class: 'btn btn-primary'
