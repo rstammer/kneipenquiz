@@ -11,8 +11,9 @@
 
   %table.table.table-hover.table-striped
     %tr.custom-head
-      %th.name Titel
-      %th{ colspan: 4 } Tags
+      %th.name{ colspan: 3 } Titel
+      %th Tags
+      %th Typ
     - collection.each do |question|
       %tr
         %td
@@ -22,6 +23,9 @@
           - ["Musik", "Zahlenspiele", "Fun", "unbenutzt"].each do |tag|
             .badge
               = tag
+        %td
+          .badge
+            = question.typus
         %td.actions
           .pull-right
             = link_to question, method: :delete do

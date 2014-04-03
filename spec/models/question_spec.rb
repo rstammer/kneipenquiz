@@ -2,6 +2,15 @@ require 'spec_helper'
 
 describe Question do
 
+  context 'with constants' do
+    it 'defines types' do
+      expect(described_class::TYPES).to eql [
+        'normal', 'Multiple-Choice', 'Schätzfrage', 'Worträtsel',
+        'Bilderrätsel', 'Musik'
+      ]
+    end
+  end
+
   context 'with associations' do
     it { expect(subject).to belong_to :game }
   end

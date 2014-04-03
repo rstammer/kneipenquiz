@@ -5,11 +5,14 @@ class QuestionsController < ActionController::Base
 
   def create
     build_resource
-    resource.save
-    redirect_to questions_path
+    if resource.save
+      redirect_to questions_path
+    else
+      render 'new'
+    end
   end
 
   def permitted_params
-    params.permit(question: [:title, :content, :answer])
+    params.permit(question: [:typus, :title, :content, :answer])
   end
 end
