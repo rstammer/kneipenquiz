@@ -37,6 +37,8 @@
               = question.typus
           %td.actions
             .pull-right
+              = link_to edit_question_path(question) do
+                %i.glyphicon.glyphicon-wrench
               = link_to question, method: :delete do
                 %i.glyphicon.glyphicon-trash
       %tr

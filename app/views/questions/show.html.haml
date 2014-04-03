@@ -1,12 +1,26 @@
-%div
+%center
   .head
-    %h2
-      %strong= resource.content
-  .list
-    %ul.list-unstyled
-      %li
-        %h4 Antwort:
-      %li
-        %p= resource.answer
+    %h4
+      %strong= resource.title
+    %h1.jumbotron
+      = resource.content
+
+    %p
+      %h4
+        %italic
+          #answer{ style: "display: none;" }
+            = resource.answer
+
+    %button.btn.btn-large.btn-danger#clicker
+      Antwort
+
 
   = link_to 'zurück zum Fragenkatalog', questions_path, class: 'btn btn-primary'
+
+:javascript
+  var answer  = document.getElementById("answer");
+  var clicker = document.getElementById("clicker");
+
+  clicker.addEventListener('click', function() {
+    answer.style = "display: block;"
+  });

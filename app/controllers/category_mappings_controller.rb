@@ -13,4 +13,5 @@ class CategoryMappingsController < ActionController::Base
   def permitted_params
     params.permit(category_mapping: [:category_id, :question_id])
   end
+
 end
