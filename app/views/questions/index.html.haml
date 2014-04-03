@@ -47,14 +47,5 @@
             %i.glyphicon.glyphicon-plus
             Neue Frage
 .row
-  .col-md-12
-    %h4 Mögliche Kategorien:
-    %ul.list-unstyled
-      - Category.all.each do |cat|
-        %li.margin-top
-          .label.label-success
-            = cat.title
-
-.row
   %center
     = link_to 'zurück',games_path, class: 'btn btn-primary'
