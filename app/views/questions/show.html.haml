@@ -1,26 +1,40 @@
-%center
-  .head
-    %h4
-      %strong= resource.title
+.row
+  .col-md-12
+    %center
+      .head
+        %h4
+          %strong= resource.title
+.row
+  .col-md-12
+    %h5
+      = resource.introduction
+
+.row
+  %center
     %h1.jumbotron
       = resource.content
 
-    %p
-      %h4
+.row
+  .col-md-12
+    %center
+      %h3
         %italic
           #answer{ style: "display: none;" }
             = resource.answer
 
-    %button.btn.btn-large.btn-danger#clicker
-      Antwort
-
-
-  = link_to 'zurück zum Fragenkatalog', questions_path, class: 'btn btn-primary'
+.row
+  .col-md-12
+    %center
+      %button.btn.btn-large.btn-danger#clicker
+        Antwort
+      = link_to 'zurück zum Fragenkatalog', questions_path, class: 'btn btn-primary'
 
 :javascript
-  var answer  = document.getElementById("answer");
-  var clicker = document.getElementById("clicker");
+  (function() {
+    var answer  = document.getElementById("answer");
+    var clicker = document.getElementById("clicker");
 
-  clicker.addEventListener('click', function() {
-    answer.style = "display: block;"
-  });
+    clicker.addEventListener('click', function() {
+      answer.style = "display: block;"
+    });
+  })();

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403191730) do
+ActiveRecord::Schema.define(version: 20140404153241) do
 
   create_table "admins", force: true do |t|
     t.string "email"
@@ -40,12 +40,13 @@ ActiveRecord::Schema.define(version: 20140403191730) do
   end
 
   create_table "questions", force: true do |t|
-    t.string  "content"
+    t.text    "content"
     t.string  "answer"
     t.string  "title"
     t.integer "game_id"
     t.string  "round"
     t.string  "typus"
+    t.text    "introduction"
   end
 
   create_table "results", force: true do |t|

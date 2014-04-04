@@ -4,8 +4,11 @@ class CategoryMappingsController < ActionController::Base
 
   def create
     build_resource
-    resource.save!
-    redirect_to questions_path
+    if resource.save!
+      redirect_to questions_path, notice: 'Ok, Zuordnung erfolgt'
+    else
+      redirect_to questions_path, alert: 'Da ist was schiefgelaufen!'
+    end
   end
 
   private

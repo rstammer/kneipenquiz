@@ -1,8 +1,8 @@
 class Question < ActiveRecord::Base
 
   TYPES = [
-    'normal', 'Multiple-Choice', 'Schätzfrage', 'Worträtsel',
-    'Bilderrätsel', 'Musik'
+    'normal', 'Multiple-Choice', 'Schätzfrage',
+    'Worträtsel', 'Bilderrätsel', 'Musik'
   ]
 
   # associations
@@ -17,6 +17,5 @@ class Question < ActiveRecord::Base
   #
 
   validates :content, :answer, :typus, presence: true
-
 
 end
