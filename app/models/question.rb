@@ -18,4 +18,10 @@ class Question < ActiveRecord::Base
 
   validates :content, :answer, :typus, presence: true
 
+  # meta programming
+  #
+  #
+
+  acts_as_taggable
+
 end

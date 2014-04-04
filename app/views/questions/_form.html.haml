@@ -14,6 +14,9 @@
     %label.form-label Antwort
     = f.text_area :answer, rows: 3, class: 'form-control'
   .form-group
+    %label.form-label Tags
+    = f.text_area :tag_list, { rows: 1, placeholder: "Tags durch Kommata trennen!", class: 'form-control' }
+  .form-group
     %label.form-label Typ
     = select_tag "question[typus]", options_for_select(options_for_typus)
 .row

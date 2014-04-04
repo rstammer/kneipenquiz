@@ -17,6 +17,7 @@
       %tr.custom-head
         %th.name{ colspan: 1 } Titel
         %th{ colspan: 2 } Kategorien
+        %th Tags
         %th Typ
         %th
       - collection.each do |question|
@@ -24,16 +25,19 @@
           %td
             %strong
               = link_to question.title, question_path(question)
-          %td{ colspan: 1 }
-            - question.category_mappings.each do |cm|
-              .label.label-success
-                = cm.category.title
-
+          %td.categories{ colspan: 1 }
+            %ul.list-unstyled
+              - question.category_mappings.each do |cm|
+                %li
+                  .label.label-success
+                    = cm.category.title
           %td
             = simple_form_for CategoryMapping.new, method: :post do |f|
               = hidden_field_tag "category_mapping[question_id]", question.id
               = f.select :category_id, options_for_select(Category.all.map { |cat| [cat.title, cat.id] })
-              = f.submit 'hinzufügen'
+              = f.submit 'hinzufügen', class: 'btn btn-default btn-xs'
+          %td
+            = render 'shared/tag_cloud', owner: question
           %td
             .badge
               = question.typus

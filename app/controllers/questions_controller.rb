@@ -13,6 +13,6 @@ class QuestionsController < ActionController::Base
   end
 
   def permitted_params
-    params.permit(question: [:typus, :title, :introduction, :content, :answer])
+    params.permit(question: [:typus, :title, :introduction, :content, :answer, :tag_list])
   end
 end
