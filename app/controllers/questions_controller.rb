@@ -12,7 +12,15 @@ class QuestionsController < ActionController::Base
     end
   end
 
+
+  private
+
   def permitted_params
     params.permit(question: [:typus, :title, :introduction, :content, :answer, :tag_list])
   end
+
+  def collection
+    @questions ||= Question.order(:id)
+  end
+
 end

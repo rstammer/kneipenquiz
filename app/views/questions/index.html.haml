@@ -15,6 +15,7 @@
 
     %table.table.table-hover.table-striped
       %tr.custom-head
+        %th #
         %th.name{ colspan: 1 } Titel
         %th{ colspan: 2 } Kategorien
         %th Tags
@@ -22,6 +23,8 @@
         %th
       - collection.each do |question|
         %tr
+          %td
+            %strong= question.id
           %td
             %strong
               = link_to question.title, question_path(question)
