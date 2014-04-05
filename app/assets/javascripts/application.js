@@ -14,3 +14,32 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+
+var listenForAnswerToggeling = function() {
+
+    var swap,
+        answer,
+        clicker;
+
+    answer  = document.getElementById("answer");
+    clicker = document.getElementById("clicker");
+
+    swap = function(elem) {
+
+          if (elem.style.display == "block") {
+
+              elem.style.display = "none";
+
+          }
+
+          else {
+
+              elem.style.display = "block";
+
+          }
+
+    };
+
+    clicker.addEventListener('click', function() { swap(answer) });
+};
