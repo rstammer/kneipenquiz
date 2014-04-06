@@ -17,7 +17,7 @@
       %tr.custom-head
         %th #
         %th.name{ colspan: 1 } Titel
-        %th{ colspan: 2 } Kategorien
+        %th Kategorien
         %th Tags
         %th Typ
         %th
@@ -34,11 +34,6 @@
                 %li
                   .label.label-success
                     = cm.category.title
-          %td
-            = simple_form_for CategoryMapping.new, method: :post do |f|
-              = hidden_field_tag "category_mapping[question_id]", question.id
-              = f.select :category_id, options_for_select(Category.all.map { |cat| [cat.title, cat.id] })
-              = f.submit 'hinzufügen', class: 'btn btn-default btn-xs'
           %td
             = render 'shared/tag_cloud', owner: question
           %td
