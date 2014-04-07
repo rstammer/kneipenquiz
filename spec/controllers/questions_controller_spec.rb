@@ -4,14 +4,19 @@ describe QuestionsController do
 
   include Devise::TestHelpers
 
+  before do
+    Question::CATEGORIES.keys.each do |cat|
+      Category.create title: Question::CATEGORIES[cat]
+    end
+  end
+
   before(:each) do
     controller.request.env["devise.mapping"] = Devise.mappings[:user]
     @user = User.first || FactoryGirl.create(:user)
     sign_in @user
 
-    Category.delete_all
     CategoryMapping.delete_all
-    @category = FactoryGirl.create :category
+    @category = Category.find_by! title: 'Politik'
   end
 
   let(:valid_params) do

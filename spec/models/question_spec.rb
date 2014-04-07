@@ -13,7 +13,7 @@ describe Question do
 
   context 'with associations' do
     it { expect(subject).to belong_to :game }
-    it { expect(subject).to have_many :categories }
+    it { expect(subject).to have_many :category_mappings }
   end
 
   context 'with validations' do

@@ -12,13 +12,13 @@ class CategoryMapping < ActiveRecord::Base
   #
 
   def self.map(question, title)
-    category = Category.find_by! title: title
+    category = Category.where(title: title).first
     category_mappings = CategoryMapping.where(category_id: category.id, question_id: question.id)
     category_mappings.first || CategoryMapping.create(category_id: category.id, question_id: question.id)
   end
 
   def self.unmap(question, title)
-    category = Category.find_by! title: title
+    category = Category.where(title: title).first
     category_mappings = CategoryMapping.where(category_id: category.id, question_id: question.id)
     category_mappings.destroy_all
   end
