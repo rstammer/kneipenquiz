@@ -4,18 +4,13 @@ class QuestionsController < ActionController::Base
   before_action :authenticate_user!
 
   def create
-    build_resource
+    create!
     build_category_mappings
-    if resource.save
-      redirect_to questions_path
-    else
-      render 'new'
-    end
   end
 
   def update
-    build_category_mappings
     update!
+    build_category_mappings
   end
 
 
