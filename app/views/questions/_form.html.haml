@@ -26,7 +26,7 @@
             = Question::CATEGORIES[cat]
   .form-group
     %label.form-label Typ
-    = select_tag "question[typus]", options_for_select(options_for_typus)
+    = select_tag "question[typus]", options_for_select(options_for_typus, resource.try(:typus))
 .row
   .col-md-12
     %center
