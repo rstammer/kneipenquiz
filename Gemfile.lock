@@ -46,6 +46,11 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
     haml (4.0.5)
       tilt
     has_scope (0.6.0.rc)
@@ -150,6 +155,7 @@ DEPENDENCIES
   acts-as-taggable-on
   bootstrap-sass (~> 3.1.1)
   devise
+  factory_girl_rails
   haml
   inherited_resources (~> 1.4.1)
   jquery-rails
