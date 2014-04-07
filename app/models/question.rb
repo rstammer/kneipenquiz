@@ -28,16 +28,18 @@ class Question < ActiveRecord::Base
   belongs_to :game
   has_many :category_mappings
 
-  # validations
-  #
-  #
-
-  validates :content, :answer, :typus, presence: true
-
   # meta programming
   #
   #
 
   acts_as_taggable
+  has_attached_file :image, :styles => { :large => "800x800>", :medium => "300x300>", :thumb => "100x100>" }
+
+  # validations
+  #
+  #
+
+  validates :content, :answer, :typus, presence: true
+  validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg)
 
 end

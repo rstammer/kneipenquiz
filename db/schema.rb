@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404185741) do
+ActiveRecord::Schema.define(version: 20140407193730) do
 
   create_table "admins", force: true do |t|
     t.string "email"
@@ -40,13 +40,17 @@ ActiveRecord::Schema.define(version: 20140404185741) do
   end
 
   create_table "questions", force: true do |t|
-    t.text    "content"
-    t.string  "answer"
-    t.string  "title"
-    t.integer "game_id"
-    t.string  "round"
-    t.string  "typus"
-    t.text    "introduction"
+    t.text     "content"
+    t.string   "answer"
+    t.string   "title"
+    t.integer  "game_id"
+    t.string   "round"
+    t.string   "typus"
+    t.text     "introduction"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "results", force: true do |t|
