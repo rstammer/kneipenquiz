@@ -36,7 +36,16 @@ class Question < ActiveRecord::Base
   has_attached_file :image,
     :styles => { :large => "800x800>", :medium => "300x300>", :thumb => "100x100>" },
     :storage => :dropbox,
-    :dropbox_credentials => Rails.root.join("config/dropbox.yml")
+    #:dropbox_credentials => Rails.root.join("config/dropbox.yml")
+
+    :dropbox_credentials => {
+      app_key:             ENV['dropbox_app_key'],
+      app_secret:          ENV['dropbox_app_secret'],
+      access_token:        ENV['dropbox_access_token'],
+      access_token_secret: ENV['dropbox_access_token_secret'],
+      user_id:             ENV['dropbox_user_id'],
+      access_type:         "app_folder"
+    }
 
   # validations
   #
