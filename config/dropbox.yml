@@ -1,6 +1,1 @@
-app_key: <%= ENV['dropbox_app_key'] || "1" %>
-app_secret:  <%= ENV['dropbox_app_secret'] || "2" %>
-access_token:  <%= ENV['dropbox_access_token'] || "3" %>
-access_token_secret:  <%= ENV['dropbox_access_token_secret'] || "4" %>
-user_id:  <%= ENV['dropbox_user_id'] || "5" %>
-access_type: "app_folder"
+

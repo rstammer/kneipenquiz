@@ -39,11 +39,11 @@ class Question < ActiveRecord::Base
     #:dropbox_credentials => Rails.root.join("config/dropbox.yml")
 
     :dropbox_credentials => {
-      app_key:             ENV['dropbox_app_key'],
-      app_secret:          ENV['dropbox_app_secret'],
-      access_token:        ENV['dropbox_access_token'],
-      access_token_secret: ENV['dropbox_access_token_secret'],
-      user_id:             ENV['dropbox_user_id'],
+      app_key:             ENV['DROPBOX_APP_KEY'],
+      app_secret:          ENV['DROPBOX_APP_SECRET'],
+      access_token:        ENV['DROPBOX_ACCESS_TOKEN'],
+      access_token_secret: ENV['DROPBOX_ACCESS_TOKEN_SECRET'],
+      user_id:             ENV['DROPBOX_USER_ID'],
       access_type:         "app_folder"
     }
 
