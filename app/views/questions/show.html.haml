@@ -11,21 +11,17 @@
 
 .row
   %center
-    %h1.jumbotron
-      = resource.content
+    .jumbotron-content
+      = simple_format resource.content
 
+.row
+  #answer.jumbotron-answer{ style: "display: none;" }
+    %center= simple_format resource.answer
 - if resource.try(:external_image_url)
   .row
     .jumbotron
       %center
         = image_tag resource.external_image_url if resource.try(:external_image_url)
-.row
-  .col-md-12
-    %center
-      %h3
-        %italic
-          #answer{ style: "display: none;" }
-            = resource.answer
 
 .row
   .col-md-12

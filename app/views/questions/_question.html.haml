@@ -1,0 +1,39 @@
+.row
+  .col-md-12
+    %center
+      .head
+        %h4
+          %strong= question.title
+.row
+  .col-md-12
+    %h5
+      = simple_format question.introduction
+
+.row
+  %center
+    %h1.jumbotron
+      = question.content
+
+- if question.try(:external_image_url)
+  .row
+    .jumbotron
+      %center
+        = image_tag question.external_image_url if question.try(:external_image_url)
+.row
+  .col-md-12
+    %center
+      %h3
+        %italic
+          #answer{ style: "display: none;" }
+            = question.answer
+
+.row
+  .col-md-12
+    %center
+      %button.btn.btn-large.btn-danger#clicker
+        Antwort
+
+:javascript
+  (function() {
+    listenForAnswerToggeling();
+  })();
