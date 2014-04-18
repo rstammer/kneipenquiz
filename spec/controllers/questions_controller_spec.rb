@@ -6,7 +6,7 @@ describe QuestionsController do
 
   before do
     Question::CATEGORIES.keys.each do |cat|
-      Category.create title: Question::CATEGORIES[cat]
+      Category.create title: Question::CATEGORIES[cat][:title]
     end
   end
 
@@ -30,7 +30,7 @@ describe QuestionsController do
   describe 'POST create' do
     it 'creates a category mapping when selected' do
       expect do
-        post :create, valid_params.merge!({ category_mappings: { "politics" => '1' } })
+        post :create, valid_params.merge!({ category_mappings: { "Politik" => '1' } })
       end.to change { CategoryMapping.count }.by(1)
     end
   end
@@ -41,7 +41,7 @@ describe QuestionsController do
       CategoryMapping.create question: question, category: @category
 
       expect do
-        patch :update, { id: question.id, category_mappings: { "politics" => '0' } }
+        patch :update, { id: question.id, category_mappings: { "Politik" => '0' } }
       end.to change { question.category_mappings.count }
     end
   end
