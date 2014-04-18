@@ -10,7 +10,7 @@ class GamesController < ActionController::Base
         question_number = n*round_number
         question = Question.find(params["question#{question_number}"])
         question.round = round_number.to_s
-        question.game = resource
+        question.game_id = resource.id
         question.save
       end
     end
@@ -26,6 +26,7 @@ class GamesController < ActionController::Base
   end
 
   def round_one
+    @questions = resource.questions.where(round: "1")
   end
 
   def round_two

@@ -15,31 +15,40 @@
 //= require bootstrap
 //= require_tree .
 
+var swap = function(elem) {
+
+    if (elem.style.display == "block") {
+
+        elem.style.display = "none";
+
+    }
+
+    else {
+
+        elem.style.display = "block";
+
+    }
+
+};
+
+var listenForImageToggeling = function() {
+
+    var image,
+        imageClicker;
+
+    image        = document.getElementById("image");
+    imageClicker = document.getElementById("image-clicker");
+
+    imageClicker.addEventListener('click', function() { swap(image) });
+};
 
 var listenForAnswerToggeling = function() {
 
-    var swap,
-        answer,
+    var answer,
         clicker;
 
     answer  = document.getElementById("answer");
     clicker = document.getElementById("clicker");
-
-    swap = function(elem) {
-
-          if (elem.style.display == "block") {
-
-              elem.style.display = "none";
-
-          }
-
-          else {
-
-              elem.style.display = "block";
-
-          }
-
-    };
 
     clicker.addEventListener('click', function() { swap(answer) });
 };

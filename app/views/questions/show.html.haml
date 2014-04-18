@@ -17,20 +17,25 @@
 .row
   #answer.jumbotron-answer{ style: "display: none;" }
     %center= simple_format resource.answer
+
 - if resource.try(:external_image_url)
   .row
-    .jumbotron
+    #image.jumbotron{ style: 'display: none;' }
       %center
         = image_tag resource.external_image_url if resource.try(:external_image_url)
 
 .row
   .col-md-12
     %center
+      - if resource.try(:external_image_url)
+        %button.btn.btn-large.btn-warning#image-clicker
+          Bild einblenden
       %button.btn.btn-large.btn-danger#clicker
         Antwort
       = link_to 'zurück zum Fragenkatalog', questions_path, class: 'btn btn-primary'
 
 :javascript
   (function() {
+    listenForImageToggeling();
     listenForAnswerToggeling();
   })();

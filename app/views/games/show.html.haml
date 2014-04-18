@@ -12,13 +12,10 @@
             %h2
               Runde #{n}
           %ul.nav.nav-pills.nav-justified
+            %li= link_to 'Runde starten', round_one_game_path(resource)
             %li= link_to 'Ergebnisse eintragen'
             %li= link_to 'Auswertung für die Meute anzeigen'
 
-.row
-  .col-md-12
-    %center
-      = link_to 'Siegerehrung', '', class: 'btn btn-xl jumbotron btn-success'
 .row
   .col-md-12
     %center
