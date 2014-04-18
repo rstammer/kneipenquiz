@@ -21,9 +21,9 @@ class QuestionsController < ActionController::Base
 
     Question::CATEGORIES.keys.each do |cm|
       if category_mappings[cm] == "1"
-        CategoryMapping.map(resource, Question::CATEGORIES[cm])
+        CategoryMapping.map(resource, Question::CATEGORIES[cm][:title])
       else
-        CategoryMapping.unmap(resource, Question::CATEGORIES[cm])
+        CategoryMapping.unmap(resource, Question::CATEGORIES[cm][:title])
       end
     end
   end

@@ -18,12 +18,11 @@
     = f.text_area :tag_list, { rows: 1, placeholder: "Tags durch Kommata trennen!", class: 'form-control' }
   %h5 Kategorien
   .form-group
-    %ul.list-unstyled
-      - Question::CATEGORIES.keys.each do |cat|
-        %li
-          %label.form-label.label.label-success
-            = check_box_tag "category_mappings[#{cat}]", "1", category_checked?(cat)
-            = Question::CATEGORIES[cat]
+    - Question::CATEGORIES.keys.each do |cat|
+      %label{ class: "form-label cat-label label-#{Question::CATEGORIES[cat][:color]}"}
+        = check_box_tag "category_mappings[#{cat}]", "1", category_checked?(cat)
+        = Question::CATEGORIES[cat][:title]
+
   .form-group
     %label.form-label Typ
     = select_tag "question[typus]", options_for_select(options_for_typus, resource.try(:typus))

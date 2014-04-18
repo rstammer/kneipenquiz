@@ -1,19 +1,19 @@
 class Question < ActiveRecord::Base
 
   CATEGORIES = {
-    "politics"      => "Politik",
-    "history"       => "Geschichte",
-    "society"       => "Gesellschaft",
-    "culture"       => "Kultur",
-    "entertainment" => "Unterhaltung",
-    "art"           => "Kunst",
-    "music"         => "Musik",
-    "science"       => "Naturwissenschaften",
-    "tech"          => "Technik",
-    "geography"     => "Geografie",
-    "sports"        => "Sport",
-    "gossip"        => "Tratsch",
-    "regional"      => "Regionales"
+    "Politik"             => { title: "Politik",             color: 'blue1'   },
+    "Geschichte"          => { title: "Geschichte",          color: 'blue2'   },
+    "Gesellschaft"        => { title: "Gesellschaft",        color: 'blue3'   },
+    "Kultur"              => { title: "Kultur",              color: 'red1'    },
+    "Unterhaltung"        => { title: "Unterhaltung",        color: 'red2'    },
+    "Kunst"               => { title: "Kunst",               color: 'red3'    },
+    "Musik"               => { title: "Musik",               color: 'red4'    },
+    "Naturwissenschaften" => { title: "Naturwissenschaften", color: 'green1'  },
+    "Technik"             => { title: "Technik",             color: 'green2'  },
+    "Geografie"           => { title: "Geografie",           color: 'green3'  },
+    "Sport"               => { title: "Sport",               color: 'yellow1' },
+    "Tratsch"             => { title: "Tratsch",             color: 'yellow2' },
+    "Regionales"          => { title: "Regionales",          color: 'yellow3' }
   }
 
   TYPES = [
