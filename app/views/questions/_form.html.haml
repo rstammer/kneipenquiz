@@ -1,7 +1,5 @@
 .row
   .col-md-12
-    = resource.errors.inspect
-  .col-md-12
     = f.error_notification
   .form-group
     %label.form-label Titel
@@ -30,11 +28,14 @@
     %label.form-label Typ
     = select_tag "question[typus]", options_for_select(options_for_typus, resource.try(:typus))
   .form-group
-    %label.form-label Bild
-    = f.file_field :image
+    %label.form-label Externe Bild-URL
+    = f.text_area :external_image_url, rows: 1, class: 'form-control'
+
 .row
   .jumbotron
-    = image_tag resource.image.url(:medium) if resource.try(:image)
+    %center
+      = image_tag resource.external_image_url if resource.try(:external_image_url)
+
 .row
   .col-md-12
     %center

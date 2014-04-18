@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407193730) do
+ActiveRecord::Schema.define(version: 20140418114125) do
 
   create_table "admins", force: true do |t|
     t.string "email"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140407193730) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "external_image_url"
   end
 
   create_table "results", force: true do |t|

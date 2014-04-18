@@ -15,6 +15,11 @@
       = resource.content
 
 .row
+  .jumbotron
+    %center
+      = image_tag resource.external_image_url if resource.try(:external_image_url)
+
+.row
   .col-md-12
     %center
       %h3

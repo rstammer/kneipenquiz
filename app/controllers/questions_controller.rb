@@ -32,7 +32,7 @@ class QuestionsController < ActionController::Base
     params.permit(question: [
       :typus, :title, :introduction,
       :content, :answer, :tag_list,
-      :image
+      :image, :external_image_url
     ])
   end
 
