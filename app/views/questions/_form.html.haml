@@ -19,7 +19,7 @@
   %h5 Kategorien
   .form-group
     - Question::CATEGORIES.keys.each do |cat|
-      %label{ class: "form-label cat-label label-#{Question::CATEGORIES[cat][:color]}"}
+      %label{ class: "form-label base-label label-#{Question::CATEGORIES[cat][:color]}"}
         = check_box_tag "category_mappings[#{cat}]", "1", category_checked?(cat)
         = Question::CATEGORIES[cat][:title]
 

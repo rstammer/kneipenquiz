@@ -32,7 +32,7 @@
             %ul.list-unstyled
               - question.category_mappings.each do |cm|
                 %li
-                  %label{ class: "form-label cat-label label-#{Question::CATEGORIES[cm.category.title][:color]}"}
+                  %label{ class: "label base-label label-#{Question::CATEGORIES[cm.category.title][:color]}"}
                     = cm.category.title
           %td
             = render 'shared/tag_cloud', owner: question
