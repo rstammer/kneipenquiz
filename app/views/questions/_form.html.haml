@@ -31,10 +31,11 @@
     %label.form-label Externe Bild-URL
     = f.text_area :external_image_url, rows: 1, class: 'form-control'
 
-.row
-  .jumbotron
-    %center
-      = image_tag resource.external_image_url if resource.try(:external_image_url)
+- if resource.try(:external_image_url)
+  .row
+    .jumbotron
+      %center
+        = image_tag resource.external_image_url if resource.try(:external_image_url)
 
 .row
   .col-md-12
