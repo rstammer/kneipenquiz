@@ -4,7 +4,7 @@ class GamesController < ActionController::Base
   before_action :authenticate_user!
 
   def create
-    build_resource
+    create!
     (1..4).each do |round_number|
       (1..8).each do |n|
         question_number = n*round_number
@@ -14,9 +14,6 @@ class GamesController < ActionController::Base
         question.save
       end
     end
-
-    resource.save
-    redirect_to games_path, notice: 'Alright, Dude. Spiel ist im Kasten!'
   end
 
   def load_game
