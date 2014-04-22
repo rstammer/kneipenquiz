@@ -5,15 +5,12 @@ class GamesController < ActionController::Base
 
   def create
     create!
-    (1..4).each do |round_number|
-      (1..8).each do |n|
-        question_number = n*round_number
-        question = Question.find(params["question#{question_number}"])
-        question.round = round_number.to_s
-        question.game_id = resource.id
-        question.save
-      end
-    end
+    build_questions(params)
+  end
+
+  def update
+    update!
+    build_questions(params)
   end
 
   def load_game
@@ -60,6 +57,20 @@ class GamesController < ActionController::Base
       :question21, :question22, :question23,
       :question24
     ])
+  end
+
+  def build_questions(parameters)
+    (1..4).each do |round_number|
+      (1..8).each do |n|
+        question_number = n*round_number
+        question = Question.find_by(id: parameters["question#{question_number}"])
+        if question
+          question.round = round_number.to_s
+          question.game_id = resource.id
+          question.save
+        end
+      end
+    end
   end
 
 end
