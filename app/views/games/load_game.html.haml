@@ -13,7 +13,7 @@
           .pull-right
             = link_to edit_game_path(game) do
               %i.glyphicon.glyphicon-pencil
-            = link_to game_path(game), method: :delete do
+            = link_to game_path(game), method: :delete, confirm: 'Bist Du sicher?' do
               %i.glyphicon.glyphicon-trash
             = link_to game_path(game) do
               %i.glyphicon.glyphicon-play
