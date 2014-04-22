@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def options_for_questions
-    Question.all.map { |q| [q.title, q.id] }
+    [['auswählen', nil]] + Question.all.map { |q| [q.title, q.id] }
   end
 
   def options_for_game
