@@ -5,17 +5,23 @@
 
 .row
   .col-md-12
-    %ul.list-unstyled
-      - (1..4).each do |n|
-        %li
-          %center
-            %h2
-              Runde #{n}
-          %ul.nav.nav-pills.nav-justified
-            %li= link_to 'Runde starten', round_one_game_path(resource)
-            %li= link_to 'Ergebnisse eintragen'
-            %li= link_to 'Auswertung für die Meute anzeigen'
+    %center
+      %ul.list-unstyled
+        - (1..4).each do |n|
+          %li
+            .round-headline
+              %h2= link_to "Runde #{n} starten", round_one_game_path(resource)
 
+            %table.table.table-hover.table-striped
+              %tr.custom-head
+                %th #
+                %th.name{ colspan: 1 } Titel
+                %th Kategorien
+                %th Tags
+                %th Typ
+                %th
+              - (1..8).each do |k|
+                = render 'shared/question', question: resource.question(n.to_s, k.to_s), actions: false
 .row
   .col-md-12
     %center

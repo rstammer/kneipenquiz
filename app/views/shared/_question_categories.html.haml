@@ -1,0 +1,6 @@
+- if question.present?
+  %ul.list-unstyled
+    - question.category_mappings.each do |cm|
+      %li
+        %label{ class: "label base-label label-#{Question::CATEGORIES[cm.category.title][:color]}"}
+          = cm.category.title

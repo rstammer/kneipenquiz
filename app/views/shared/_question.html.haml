@@ -1,0 +1,21 @@
+- if question.present?
+  %tr
+    %td
+      %strong= question.id
+    %td
+      %strong
+        = link_to question.title, question_path(question)
+    %td.categories{ colspan: 1 }
+      = render 'shared/question_categories', question: question
+    %td
+      = render 'shared/tag_cloud', owner: question
+    %td
+      .badge
+        = question.typus
+    %td.actions
+      .pull-right
+        - if actions
+          = link_to edit_question_path(question) do
+            %i.glyphicon.glyphicon-wrench
+          = link_to question, method: :delete, confirm: 'Bist du sicher?' do
+            %i.glyphicon.glyphicon-trash

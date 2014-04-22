@@ -29,11 +29,7 @@
             %strong
               = link_to question.title, question_path(question)
           %td.categories{ colspan: 1 }
-            %ul.list-unstyled
-              - question.category_mappings.each do |cm|
-                %li
-                  %label{ class: "label base-label label-#{Question::CATEGORIES[cm.category.title][:color]}"}
-                    = cm.category.title
+            = render 'shared/question_categories', question: question
           %td
             = render 'shared/tag_cloud', owner: question
           %td
