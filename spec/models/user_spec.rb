@@ -2,15 +2,14 @@ require 'spec_helper'
 
 describe User do
   context 'with validations' do
-    it 'allows only two users' do
+    before do
       User.delete_all
-      robin = User.new(email: "foo@bar.baz", password: "boobasfaDfdfs")
-      robin.save!
-      axl = User.new(email: "foo2@bar.baz", password: "boobasfaDfdfs")
-      axl.save!
+      FactoryGirl.create_list(:user, 2)
+    end
 
+    it 'allows only two users' do
       expect(User.count).to eql 2
-      visitor = User.new(email: "blorgh@blurgh.blargh", password: "sdfjsljlkskjsds")
+      visitor = FactoryGirl.build(:user)
       expect(visitor).not_to be_valid
     end
   end
