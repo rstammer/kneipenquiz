@@ -7,7 +7,7 @@ gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'haml'
-gem 'shoulda', '~> 3.3.2'
+gem 'shoulda-matchers', require: false
 gem 'rspec-rails', '~> 2.0'
 gem 'sass-rails', '>= 3.2' # sass-rails needs to be higher than 3.2
 gem 'bootstrap-sass', '~> 3.1.1'
