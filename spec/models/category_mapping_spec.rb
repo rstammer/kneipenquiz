@@ -16,7 +16,7 @@ describe CategoryMapping do
       it 'does nothing if category with given title doesnt exist' do
         expect {
           described_class.map(question , 'bullshit')
-        }.not_to change { question.category_mappings }
+        }.not_to change { question.reload.category_mappings.count }
       end
 
       it 'creates mapping' do
@@ -34,14 +34,31 @@ describe CategoryMapping do
 
         expect {
           expect(described_class.map(question , category.title)).to eql existent_mapping
-        }.not_to change { question.category_mappings }
+        }.not_to change { question.reload.category_mappings.count }
       end
 
     end
     describe '.unmap' do
-      it 'has to be tested' do
-        pending
+      it 'does nothing if category with given title doesnt exist' do
+        question.category_mappings.create category: category
+
+        expect {
+          described_class.unmap(question , 'bullshit')
+        }.not_to change { question.reload.category_mappings.count }
       end
+
+      it 'deletes existing mappings' do
+        Category.delete_all
+        CategoryMapping.delete_all
+
+        question.category_mappings.create category: category
+
+        expect {
+          described_class.unmap(question , category.title)
+        }.to change { question.category_mappings.count }.to(0)
+      end
+
+
     end
   end
 
