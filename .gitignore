@@ -16,4 +16,5 @@
 /log/*.log
 /tmp
 
+*.jpg
 *database.yml
