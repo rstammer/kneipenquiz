@@ -47,4 +47,12 @@ class Question < ActiveRecord::Base
   validates :content, :answer, :typus, presence: true
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg)
 
+  # class methods
+  #
+  #
+
+  def self.for(game, round, position)
+    Question.find_by(game_id: game.id, round: round, position: position)
+  end
+
 end

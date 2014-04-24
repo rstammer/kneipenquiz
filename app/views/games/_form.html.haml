@@ -15,34 +15,38 @@
       %ul.list-unstyled
         - (1..8).each do |n|
           %li
-            = select_tag "question#{n}", options_for_select(options_for_questions)
+            = select_tag "questions[1][#{n}]", options_for_select(options_for_questions)
 .row
   .col-md-12
     %center
       %h2 Runde 2
       %ul.list-unstyled
-        - (9..16).each do |n|
+        - (1..8).each do |n|
           %li
-            = select_tag  "question#{n}", options_for_select(options_for_questions)
+            = select_tag "questions[2][#{n}]", options_for_select(options_for_questions)
+.row
+  .col-md-12
+    %center
+      %h2 Runde 3
+      %ul.list-unstyled
+        - (1..8).each do |n|
+          %li
+            = select_tag "questions[3][#{n}]", options_for_select(options_for_questions)
+
+.row
+  .col-md-12
+    %center
+      %h2 Runde 4
+      %ul.list-unstyled
+        - (1..8).each do |n|
+          %li
+            = select_tag "questions[4][#{n}]", options_for_select(options_for_questions)
+
+
+
 .row
   .col-md-12.margin-top
     .form-group
       %center
         %label.form-label Anzeigetext für das Zwischenspiel
       = f.text_area :intermezzo, rows: 6, class: 'form-control'
-.row
-  .col-md-12.margin-top
-    %center
-      %h2 Runde 3
-      %ul.list-unstyled
-        - (17..24).each do |n|
-          %li
-            = select_tag  "question#{n}", options_for_select(options_for_questions)
-.row
-  .col-md-12
-    %center
-      %h2 Runde 4
-      %ul.list-unstyled
-        - (25..32).each do |n|
-          %li
-            = select_tag  "question#{n}", options_for_select(options_for_questions)
