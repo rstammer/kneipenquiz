@@ -15,7 +15,6 @@
       %ul.list-unstyled
         - (1..8).each do |n|
           %li
-            = resource.question("1", n.to_s).try(:title)
             = select_tag "question#{n}", options_for_select(options_for_questions)
 .row
   .col-md-12
@@ -24,7 +23,6 @@
       %ul.list-unstyled
         - (9..16).each do |n|
           %li
-            = resource.question("2", n.to_s).try(:title)
             = select_tag  "question#{n}", options_for_select(options_for_questions)
 .row
   .col-md-12.margin-top
@@ -39,7 +37,6 @@
       %ul.list-unstyled
         - (17..24).each do |n|
           %li
-            = resource.question("3", n.to_s).try(:title)
             = select_tag  "question#{n}", options_for_select(options_for_questions)
 .row
   .col-md-12
@@ -48,5 +45,4 @@
       %ul.list-unstyled
         - (25..32).each do |n|
           %li
-            = resource.question("4", n.to_s).try(:title)
             = select_tag  "question#{n}", options_for_select(options_for_questions)
