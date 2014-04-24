@@ -15,7 +15,7 @@
       %ul.list-unstyled
         - (1..8).each do |n|
           %li
-            = select_tag "questions[1][#{n}]", options_for_select(options_for_questions)
+            = select_tag "questions[1][#{n}]", options_for_select(options_for_questions, selected(resource, 1, n))
 .row
   .col-md-12
     %center
@@ -23,7 +23,7 @@
       %ul.list-unstyled
         - (1..8).each do |n|
           %li
-            = select_tag "questions[2][#{n}]", options_for_select(options_for_questions)
+            = select_tag "questions[2][#{n}]", options_for_select(options_for_questions, selected(resource, 2, n))
 .row
   .col-md-12
     %center
@@ -31,7 +31,7 @@
       %ul.list-unstyled
         - (1..8).each do |n|
           %li
-            = select_tag "questions[3][#{n}]", options_for_select(options_for_questions)
+            = select_tag "questions[3][#{n}]", options_for_select(options_for_questions, selected(resource, 3, n))
 
 .row
   .col-md-12
@@ -40,7 +40,7 @@
       %ul.list-unstyled
         - (1..8).each do |n|
           %li
-            = select_tag "questions[4][#{n}]", options_for_select(options_for_questions)
+            = select_tag "questions[4][#{n}]", options_for_select(options_for_questions, selected(resource, 4, n))
 
 
 

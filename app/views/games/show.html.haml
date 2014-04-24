@@ -21,7 +21,7 @@
                 %th Typ
                 %th
               - (1..8).each do |k|
-                = render 'shared/question', question: Question.first, actions: false
+                = render 'shared/question', question: Question.for(resource, n,k), actions: false
 .row
   .col-md-12
     %center
