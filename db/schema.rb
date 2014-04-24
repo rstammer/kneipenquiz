@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418114125) do
+ActiveRecord::Schema.define(version: 20140424072009) do
 
   create_table "admins", force: true do |t|
     t.string "email"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20140418114125) do
     t.string   "answer"
     t.string   "title"
     t.integer  "game_id"
-    t.string   "round"
     t.string   "typus"
     t.text     "introduction"
     t.string   "image_file_name"
@@ -52,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140418114125) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "external_image_url"
+    t.integer  "position"
+    t.integer  "round"
   end
 
   create_table "results", force: true do |t|
