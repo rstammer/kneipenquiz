@@ -4,5 +4,6 @@
     = text_field_tag :q, params[:q], placeholder: 'Frag mich nach Tags!', class: 'form-control'
   .form-group
     = select_tag :typus, options_for_select(options_for_typus, params[:typus]), class: 'form-control'
+  .form-group
+    = select_tag :cat, options_for_select(options_for_cats, params[:cat]), class: 'form-control'
   = submit_tag "Filter anwenden", name: nil, class: 'btn btn-success'
-
