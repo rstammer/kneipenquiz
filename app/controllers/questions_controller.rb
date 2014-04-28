@@ -5,16 +5,23 @@ class QuestionsController < ActionController::Base
 
   def create
     create!
+    add_autotags
     build_category_mappings
   end
 
   def update
     update!
+    add_autotags
     build_category_mappings
   end
 
 
   private
+
+  def add_autotags
+    resource.tag_list << 'unbenutzt' unless resource.game.present?
+    resource.save
+  end
 
   def build_category_mappings
     category_mappings = params[:category_mappings] || {}

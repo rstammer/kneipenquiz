@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424072009) do
+ActiveRecord::Schema.define(version: 20140428194748) do
 
   create_table "admins", force: true do |t|
     t.string "email"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20140424072009) do
     t.text     "external_image_url"
     t.integer  "position"
     t.integer  "round"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "results", force: true do |t|
