@@ -40,7 +40,7 @@ class QuestionsController < ActionController::Base
     @questions ||= begin
                      scope = Question.order(:id)
                      scope = scope.where(typus: params[:typus]) if params[:typus].present?
-                     scope = scope.where('title ILIKE ?', params[:q]) if params[:q].present?
+                     scope = scope.tagged_with(params[:q])      if params[:q].present?
                      scope
                    end
   end

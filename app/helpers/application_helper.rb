@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def options_for_typus
-    Question::TYPES.map { |type| [type, type] }
+    Question::TYPES.map { |type| [type, type] } + [['alle', nil]]
   end
 
   def options_for_questions
