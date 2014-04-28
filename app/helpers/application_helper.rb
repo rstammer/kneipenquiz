@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def category_checked?(cat)
-    check = resource.category_mappings.collect { |cm| cm.category }.map(&:title).include? Question::CATEGORIES[cat]
+    check = resource.category_mappings.collect { |cm| cm.category }.map(&:title).include? Question::CATEGORIES[cat][:title]
     { :checked => 'checked' } if check.present?
   end
 
@@ -21,4 +21,5 @@ module ApplicationHelper
   def options_for_game
     Game.all.map { |g| [g.title, g.id]}
   end
+
 end
