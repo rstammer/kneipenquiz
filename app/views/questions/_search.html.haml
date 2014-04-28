@@ -1,0 +1,8 @@
+- search_path ||= '/questions'
+= form_tag search_path, method: :get, class: 'form-inline' do
+  .form-group
+    = text_field_tag :q, params[:q], placeholder: 'Frag mich!', class: 'form-control'
+  .form-group
+    = select_tag :typus, options_for_select(options_for_typus+[nil], params[:typus]), class: 'form-control'
+  = submit_tag "Filter anwenden", name: nil, class: 'btn btn-success'
+
