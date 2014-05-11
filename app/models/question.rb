@@ -55,4 +55,12 @@ class Question < ActiveRecord::Base
     Question.find_by(game_id: game.id, round: round, position: position)
   end
 
+  # instance methods
+  #
+  #
+
+  def has_category?(title)
+    self.category_mappings.collect { |cm| cm.category.title }.include? title
+  end
+
 end
