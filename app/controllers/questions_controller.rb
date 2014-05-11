@@ -45,9 +45,10 @@ class QuestionsController < ActionController::Base
 
   def collection
     @questions ||= begin
-                     scope = Question.order(:id)
-                     scope = scope.where(typus: params[:typus]) if params[:typus].present?
-                     scope = scope.tagged_with(params[:q])      if params[:q].present?
+                     scope = Question.order(:created_at)
+                     scope = scope.where(typus: params[:typus])                if params[:typus].present?
+                     scope = scope.tagged_with(params[:q])                     if params[:q].present?
+                     scope = scope.select { |q| q.has_category? params[:cat] } if params[:cat].present?
                      scope
                    end
   end
