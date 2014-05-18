@@ -6,4 +6,6 @@
     = select_tag :typus, options_for_select(options_for_typus, params[:typus]), class: 'form-control'
   .form-group
     = select_tag :cat, options_for_select(options_for_cats, params[:cat]), class: 'form-control'
+  .form-group
+    = select_tag :game, options_for_select(options_for_games, params[:game]), class: 'form-control'
   = submit_tag "Filter anwenden", name: nil, class: 'btn btn-success'

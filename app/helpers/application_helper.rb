@@ -17,6 +17,10 @@ module ApplicationHelper
     [['alle Kategorien', nil]] + Question::CATEGORIES.keys.map { |cat| [cat, cat] }
   end
 
+  def options_for_games
+    [['alle Spiele', nil]] + Game.all.map { |g| [g.title, g.id] }
+  end
+
   def selected(game, round, position)
     q = Question.for(game, round, position)
     q.present? ? [q.id, q.title] : nil
