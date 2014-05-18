@@ -36,6 +36,27 @@ describe QuestionsController do
   end
 
   describe 'PATCH update' do
+    context 'autotags handling' do
+      let(:question) { FactoryGirl.create :question }
+
+      it 'tags question as unused if no game present' do
+        expect(question.game).to be_blank
+        expect {
+          patch :update, { id: question.id, question: { answer: '3.14159' } }
+        }.to change { question.reload.tag_list }.by(['unbenutzt'])
+      end
+
+      it 'removes unused-tag' do
+        question.tag_list.add('unbenutzt')
+        question.game = FactoryGirl.create :game
+        question.save
+
+        patch :update, { id: question.id, question: { answer: '3.14159' } }
+        expect(question.reload.tag_list).not_to include('unbenutzt')
+      end
+
+    end
+
     it 'deletes category mapping when selected' do
       question = FactoryGirl.create :question
       CategoryMapping.create question: question, category: @category

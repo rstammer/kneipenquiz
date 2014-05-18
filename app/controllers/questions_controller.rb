@@ -19,7 +19,11 @@ class QuestionsController < ActionController::Base
   private
 
   def add_autotags
-    resource.tag_list << 'unbenutzt' unless resource.game.present?
+    if resource.game.blank?
+      resource.tag_list.add('unbenutzt')
+    else
+      resource.tag_list.remove('unbenutzt')
+    end
     resource.save
   end
 
