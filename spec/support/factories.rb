@@ -1,6 +1,10 @@
 # encoding: UTF-8
 FactoryGirl.define do
 
+  factory :game do
+    title 'A new game'
+  end
+
   factory :category do
     title 'Politik'
   end
