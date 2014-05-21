@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def options_for_games
-    [['alle Spiele', nil]] + Game.all.map { |g| [g.title, g.id] }
+    [['alle Spiele', nil]] + Game.all.map { |g| [shorten(g.title), g.id] }
   end
 
   def selected(game, round, position)
@@ -26,8 +26,8 @@ module ApplicationHelper
     q.present? ? [q.id, q.title] : nil
   end
 
-  def options_for_game
-    Game.all.map { |g| [g.title, g.id]}
+  def shorten(text)
+    text.size > 18 ? text.first(18) + '...' : text
   end
 
 end
