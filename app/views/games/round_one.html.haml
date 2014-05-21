@@ -1,2 +1,8 @@
-- @questions.each do |question|
-  = render 'questions/question', question: question
+%button.btn.btn-large.btn-primary#fscr-button
+  Vollbild-Modus
+
+#fscr-area
+  = render 'questions/question', question: @questions.first
+
+:javascript
+  FullscreenControl.init();
