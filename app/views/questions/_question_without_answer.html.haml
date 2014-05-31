@@ -5,11 +5,8 @@
         %h4
           %strong= question.title
 .row
-  .col-md-12
-    %h5
-      = simple_format question.introduction
-
-.row
+  .jumbotron
+    = simple_format question.introduction
   %center
     %h1.jumbotron
       = question.content
