@@ -19,21 +19,3 @@
     .jumbotron
       %center
         = image_tag question.external_image_url if question.try(:external_image_url)
-.row
-  .col-md-12
-    %center
-      %h3
-        %italic
-          #answer{ style: "display: none;" }
-            = question.answer
-
-.row
-  .col-md-12
-    %center
-      %button.btn.btn-large.btn-danger#clicker
-        Antwort
-
-:javascript
-  (function() {
-    listenForAnswerToggeling();
-  })();

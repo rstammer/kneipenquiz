@@ -1,8 +1,58 @@
-%button.btn.btn-large.btn-primary#fscr-button
-  Vollbild-Modus
+%center
+  %button.btn.btn-large.btn-primary#fscr-button
+    Vollbild-Modus
+
 
 #fscr-area
-  = render 'questions/question', question: @questions.first
+  %ul.list.list-unstyled{ data: { :action => 'initSlideRider', slide: { rider: { heading: 'Runde 1' }}} }
+    = @questions.each do |question|
+      %li
+        = render 'questions/question_without_answer', question: question
 
 :javascript
-  FullscreenHandler.init();
+  var fh = FullscreenHandler.init();
+  var sr = new Absolventa.UI.SlideRider('[data-action~="initSlideRider"]', {
+        hideInactiveSlides : true,
+
+        showPrevNext : true,
+        prevControlText : '<',
+        nextControlText : '>',
+
+        showDots : false,
+
+        animation: true,
+        scrollingSpeed : 500,
+        easingMethod : 'easeInOutSine', // see http://kirupa.googlecode.com/svn/trunk/easing.js for available easing methods
+
+        swipeThreshold : 50, // How many pixels are necessary to trigger a slide change?
+        swipeXAxisStrictness : 2, // if set higher, the swipe movement has to be more parallel to the x-axis
+
+        // css classes
+        wrapperCssClassName : 'slide-rider-wrapper',
+        customWrapperCssClass : '',
+        loadedCssClassName : 'slide-rider-loaded',
+        controlsCssClassName : 'slide-rider-controls',
+        customPrevNextCssClassName : '', // // you can use this for responsive classes like "show-for-small-only", which are provided e.g. by foundation
+        dotsCssClassName : 'slide-rider-dots',
+        dotCssClassName : 'slide-rider-dot',
+        customDotsCssClassName : '', // you can use this for responsive classes like "show-for-medium-up", which are provided e.g. by foundation
+        viewportCssClassName : 'slide-rider-viewport',
+        prevControlCssClassName : 'slide-rider-control-prev',
+        nextControlCssClassName : 'slide-rider-control-next',
+        animationCssClassName : 'slide-rider-animated',
+        isActiveCssClassName : 'is-active',
+
+        // callbacks
+        beforeLoad : function(instance) {
+
+        },
+        afterLoad : function(instance) {
+
+        },
+        beforeSlide : function(instance) {
+
+        },
+        afterSlide : function(instance) {
+
+        }
+    });
