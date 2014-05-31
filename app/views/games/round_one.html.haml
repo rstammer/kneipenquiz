@@ -1,10 +1,19 @@
 %center
   %button.btn.btn-large.btn-primary#fscr-button
-    Vollbild-Modus
+    Runde 1 im Vollbild-Modus starten
 
+.premessage
+  %h1
+    %center
+      %strong Sitzt ihr schon bequem? Gleich geht's los.
 
 #fscr-area
   %ul.list.list-unstyled{ data: { :action => 'initSlideRider', slide: { rider: { heading: 'Runde 1' }}} }
+    %li
+      .jumbotron.round-info
+        %center
+          %h1
+            %strong Runde 1
     = @questions.each do |question|
       %li
         = render 'questions/question_without_answer', question: question
@@ -20,7 +29,7 @@
 
         showDots : false,
 
-        animation: true,
+        animation: false,
         scrollingSpeed : 500,
         easingMethod : 'easeInOutSine', // see http://kirupa.googlecode.com/svn/trunk/easing.js for available easing methods
 
