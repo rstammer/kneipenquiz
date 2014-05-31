@@ -1,6 +1,6 @@
 "use strict";
 
-var FullscreenControl = (function(){
+var FullscreenHandler = (function(){
 
   var control = {};
 
