@@ -2,7 +2,7 @@
   %center
     .head
       %h1
-        %strong Ready to rumble?
+        %strong Spiel auswählen
 
 .col-md-12
   .list
@@ -17,9 +17,8 @@
               %i.glyphicon.glyphicon-trash
             = link_to game_path(game) do
               %i.glyphicon.glyphicon-play
-              JETZT spielen
-
+              zur Präsentation
 
 .col-md-12
   %center
-    = link_to 'Ich will zu meiner Mami!', games_path , class: 'btn btn-large btn-success'
+    = link_to 'zurück', games_path , class: 'btn btn-large btn-success'

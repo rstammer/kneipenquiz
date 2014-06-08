@@ -1,28 +1,33 @@
 %center
-  .head
-    %h1
-      %strong= resource.title
+  %button.btn.btn-large.btn-primary#fscr-button
+    %i.glyphicon.glyphicon-play
+    Präsentation starten
 
-.row
-  .col-md-12
+.premessage
+  %h1
     %center
-      %ul.list-unstyled
-        - (1..4).each do |n|
-          %li
-            .round-headline
-              %h2= link_to "Runde #{n} starten", round_one_game_path(resource)
+      %strong Gleich geht's los.
 
-            %table.table.table-hover.table-striped
-              %tr.custom-head
-                %th #
-                %th.name{ colspan: 1 } Titel
-                %th Kategorien
-                %th Tags
-                %th Typ
-                %th
+#fscr-area
+  .roq
+    %center
+      .head
+        %h1
+          %strong= resource.title
+  .row
+    .col-md-12
+      %center
+        %ul.list-unstyled
+          - (1..4).each do |n|
+            %li
+              .round-headline
+                %h2= "Runde #{n}"
               - (1..8).each do |k|
-                = render 'shared/question', question: Question.for(resource, n,k), actions: false
-.row
-  .col-md-12
-    %center
-      = link_to 'zurück zum Haupmenü', games_path, class: 'btn btn-info'
+                = render 'questions/question_without_answer', question: Question.for(resource, n, k)
+  .row
+    .col-md-12
+      %center
+        = link_to 'zurück zum Haupmenü', games_path, class: 'btn btn-info'
+
+:javascript
+  var fh = FullscreenHandler.init();
