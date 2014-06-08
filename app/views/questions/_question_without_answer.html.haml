@@ -1,19 +1,11 @@
 - if question.present?
-  .row
-    .col-md-12
-      %center
-        .head
-          %h4
-            %strong= question.title
-  .row
-    .jumbotron
-      = simple_format question.introduction
-    %center
-      %h1.jumbotron
-        = question.content
+  %strong= question.title
+
+  %center
+    = simple_format question.introduction
+  %center
+    = simple_format question.content
 
   - if question.try(:external_image_url).present?
-    .row
-      .jumbotron
-        %center
-          = image_tag question.external_image_url if question.try(:external_image_url)
+    %center
+      = image_tag question.external_image_url if question.try(:external_image_url)

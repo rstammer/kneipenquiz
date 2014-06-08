@@ -9,21 +9,22 @@
       %strong Gleich geht's los.
 
 #fscr-area
-  .roq
-    %center
-      .head
+  .col-md-12
+    .slide
+      %center.slide-info
         %h1
           %strong= resource.title
-  .row
-    .col-md-12
-      %center
-        %ul.list-unstyled
-          - (1..4).each do |n|
-            %li
-              .round-headline
-                %h2= "Runde #{n}"
-              - (1..8).each do |k|
-                = render 'questions/question_without_answer', question: Question.for(resource, n, k)
+  .col-md-12
+    %ul.list-unstyled
+      - (1..4).each do |n|
+        %li
+          .slide
+            %center.slide-info
+              %h1
+                %strong= "Runde #{n}"
+          - (1..8).each do |k|
+            .slide
+              = render 'questions/question_without_answer', question: Question.for(resource, n, k)
   .row
     .col-md-12
       %center
