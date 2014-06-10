@@ -8,6 +8,7 @@
   %body
     .pull-right
       - if user_signed_in?
+        = link_to 'Home', games_path, class: 'btn btn-mini'
         = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-mini'
       - else
         = link_to 'Login', backend_path, class: 'btn btn-mini'

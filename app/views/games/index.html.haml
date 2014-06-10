@@ -1,27 +1,29 @@
-%div
-  .head
+.row
+  .list-menu
     %h1
       %strong Kneipenquiz
 
-  .list-menu
-    %ul.nav.nav-pills.nav-stacked
-      %li
-        %h2
-          = link_to load_game_games_path do
-            %i.glyphicon.glyphicon-play
-            Spiele
-      %li
-        %h2
-          = link_to teams_path do
-            %i.glyphicon.glyphicon-user
-            Teams
-      %li
-        %h2
-          = link_to questions_path do
-            %i.glyphicon.glyphicon-question-sign
-            Fragenkatalog
-      %li
-        %h2
-          = link_to new_game_path do
-            %i.glyphicon.glyphicon-wrench
-            Spiel vorbereiten
+.row
+  .col-md-12
+    .list-menu
+      %ul.nav.nav-pills.nav-stacked
+        %li.col-md-12
+          %h2
+            = link_to load_game_games_path do
+              %i.glyphicon.glyphicon-play
+              Spiele
+        %li.col-md-12
+          %h2
+            = link_to teams_path do
+              %i.glyphicon.glyphicon-user
+              Teams
+        %li.col-md-12
+          %h2
+            = link_to questions_path do
+              %i.glyphicon.glyphicon-question-sign
+              Fragenkatalog
+        %li.col-md-12
+          %h2
+            = link_to new_game_path do
+              %i.glyphicon.glyphicon-wrench
+              Spiel vorbereiten
