@@ -1,6 +1,8 @@
 Kneipenquiz::Application.routes.draw do
   devise_for :users
-  root to: 'games#index'
+  root to: 'public#brandaktuell'
+
+  get '/backend', to: 'games#index', as: :backend
 
   resources :games do
     get :load_game, on: :collection
