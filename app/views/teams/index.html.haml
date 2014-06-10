@@ -38,7 +38,7 @@
             2.7828
         %td.actions
           .pull-right
-            = link_to team, method: :delete, confirm: 'Bist du wirklich sicher? Das ist umkehbar...' do
+            = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
               %i.glyphicon.glyphicon-trash
     %tr
       %td{ colspan: 6 }
