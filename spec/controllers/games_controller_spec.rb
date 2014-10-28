@@ -11,7 +11,7 @@ describe GamesController do
   end
 
   describe 'POST create' do
-
+    pending
   end
 
 end

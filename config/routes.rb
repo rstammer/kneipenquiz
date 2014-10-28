@@ -5,7 +5,7 @@ Kneipenquiz::Application.routes.draw do
   get '/backend', to: 'games#index', as: :backend
 
   resources :games do
-    get :load_game, on: :collection
+    get :menu, on: :collection
   end
 
   resources :category_mappings

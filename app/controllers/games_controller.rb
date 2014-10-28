@@ -13,30 +13,15 @@ class GamesController < ActionController::Base
     build_questions(params[:questions])
   end
 
-  def load_game
+  def menu
   end
 
-  def start
-  end
-
-  def round_one
-    # ToDo: Load all questions here and display 'em in a nice manner
-    @questions = resource.questions.where(round: "1")
-  end
-
-  def round_two
-  end
-
-  def intermezzo
-  end
-
-  def round_three
-  end
-
-  def round_four
-  end
 
   private
+
+  def collection
+    @games ||= Game.all
+  end
 
   def resource
     @game ||= Game.find(params[:id])
