@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe NewsController do
+describe PostsController do
 
   describe 'GET index' do
     it 'renders index' do

@@ -8,7 +8,7 @@ Kneipenquiz::Application.routes.draw do
     get :menu, on: :collection
   end
 
-  resources :news
+  resources :posts
   resources :category_mappings
   resources :questions
   resources :teams
