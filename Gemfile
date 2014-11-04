@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.0'
+gem 'rails', '4.1.2'
 gem 'pg'
 gem 'inherited_resources', '~> 1.4.1'
 gem 'simple_form'
