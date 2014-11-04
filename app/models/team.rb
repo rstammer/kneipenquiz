@@ -1,9 +1,5 @@
 class Team < ActiveRecord::Base
 
-  # associations
-  #
-  #
-
   # validations
   #
   #
