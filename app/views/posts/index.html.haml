@@ -1,0 +1,30 @@
+.row
+  .col-md-6.col-centered
+    %h1
+      %strong Zimt&Zunder-Kneipenquiz
+
+- collection.each do |post|
+  .row
+    .col-md-12
+      - if user_signed_in?
+        = link_to post_path(post), method: :delete, data: { confirm: 'Bist Du sicher?' } do
+          %i.glyphicon.glyphicon-trash
+        = link_to edit_post_path(post) do
+          %i.glyphicon.glyphicon-pencil
+
+    .col-md-12
+      %h6= post.created_at
+    .col-md-12.col-centered
+      %h2
+        %strong= post.title
+    .col-md-12.col-centered
+      %p
+        = post.content
+
+.footer
+  .row
+    .col-md-2.col-centered
+      %strong
+      = link_to 'source', 'http://github.com/neumanrq/kneipenquiz'
+      | © rbn 2014
+

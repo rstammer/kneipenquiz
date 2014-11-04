@@ -1,0 +1,11 @@
+.row
+  .col-md-12
+    %h1
+      %strong News editieren
+
+  .col-md-12
+    = simple_form_for resource do |f|
+      = render 'form', { f: f }
+      .col-md-12
+        = link_to 'zurück zum Haupmenü', menu_games_path, class: 'btn btn-warning'
+        = f.submit 'Speichern', class: 'btn btn-success'

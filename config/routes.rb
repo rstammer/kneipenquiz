@@ -1,6 +1,6 @@
 Kneipenquiz::Application.routes.draw do
   devise_for :users
-  root to: 'news#index'
+  root to: 'posts#index'
 
   get '/backend', to: 'games#index', as: :backend
 
