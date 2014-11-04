@@ -1,6 +1,6 @@
 Kneipenquiz::Application.routes.draw do
   devise_for :users
-  root to: 'public#brandaktuell'
+  root to: 'news#index'
 
   get '/backend', to: 'games#index', as: :backend
 
@@ -8,6 +8,7 @@ Kneipenquiz::Application.routes.draw do
     get :menu, on: :collection
   end
 
+  resources :news
   resources :category_mappings
   resources :questions
   resources :teams
