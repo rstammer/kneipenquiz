@@ -12,4 +12,5 @@ Kneipenquiz::Application.routes.draw do
   resources :category_mappings
   resources :questions
   resources :teams
+  resources :results, except: [:index]
 end
