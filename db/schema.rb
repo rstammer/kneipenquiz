@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104202739) do
+ActiveRecord::Schema.define(version: 20141109123636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "admins", force: true do |t|
     t.string "email"
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 20141104202739) do
     t.integer "total_score"
     t.integer "team_id"
     t.integer "game_id"
+    t.hstore  "scores"
   end
 
   create_table "taggings", force: true do |t|
