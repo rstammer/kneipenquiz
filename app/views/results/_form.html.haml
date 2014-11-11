@@ -1,6 +1,6 @@
 .col-md-12
   .form-group
-    = f.association :game, label: false, collection: Game.all, label_method: :title, include_blank: false, class: 'form-control'
+    = select_tag :game_id, options_for_select(Game.all.reject{ |game| game.results.count > 0 }.map{ |game| [game.title, game.id] }, params[:game]), class: 'form-control'
 .col-md-12
   %table.table.table-striped
     %thead
@@ -16,13 +16,14 @@
         %td= team.title
         %td
           .form-group
-            = text_field_tag "team_#{team.id.to_s}_round_1"
+            = text_field_tag "scores[#{team.id.to_s}][1]"
         %td
           .form-group
-            = text_field_tag "team_#{team.id.to_s}_round_2"
+            = text_field_tag "scores[#{team.id.to_s}][2]"
         %td
           .form-group
-            = text_field_tag "team_#{team.id.to_s}_round_3"
+            = text_field_tag "scores[#{team.id.to_s}][3]"
         %td
           .form-group
-            = text_field_tag "team_#{team.id.to_s}_round_4"
+            = text_field_tag "scores[#{team.id.to_s}][4]"
+

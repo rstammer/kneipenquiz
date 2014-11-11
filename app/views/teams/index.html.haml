@@ -10,7 +10,7 @@
       %tr.custom-head
         %th.name Name
         %th Gesamtscore
-        %th ... im letzten Spiel
+        %th im letzten Spiel
         %th Durchschnitt
         %th
       - collection.each do |team|
@@ -20,13 +20,13 @@
               = team.title
           %td
             .badge
-              = 0
+              = team.total_score.to_s
           %td
             .badge
-              = 0
+              = Game.last.results.where(team_id: team.id).first.try(:total_score)
           %td
             .badge
-              2.7828
+              = team.results.map(&:total_score).inject(0, :+).to_f / team.results.count.to_f
           %td.actions
             .pull-right
               = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do

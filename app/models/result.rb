@@ -15,7 +15,7 @@ class Result < ActiveRecord::Base
   after_create :update_team_score
 
   def update_team_score
-    new_value = team.total_score.to_i + self.total_score.to_i
+    new_value = team.total_score.to_f + self.total_score.to_f
     team.update_column(:total_score, new_value)
   end
 
