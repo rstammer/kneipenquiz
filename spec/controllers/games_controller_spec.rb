@@ -10,8 +10,4 @@ describe GamesController do
     sign_in @user
   end
 
-  describe 'POST create' do
-    pending
-  end
-
 end

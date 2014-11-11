@@ -31,7 +31,7 @@ describe Question do
         question
         category
         category_mapping
-        expect(question.has_category?(category.title)).to be_true
+        expect(question.has_category?(category.title)).to be_truthy
       end
 
       it 'is false when no category mapping present' do
