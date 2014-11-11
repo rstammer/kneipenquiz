@@ -1,34 +1,33 @@
 .row
-  .list-menu
+  .col-md-12
     %h1
       %strong Kneipenquiz
 
 .row
   .col-md-12
-    .list-menu
-      %ul.nav.nav-pills.nav-stacked
-        %li.col-md-12
-          %h2
-            = link_to games_path do
-              %i.glyphicon.glyphicon-play
-              Spiele
-        %li.col-md-12
-          %h2
-            = link_to teams_path do
-              %i.glyphicon.glyphicon-user
-              Teams
-        %li.col-md-12
-          %h2
-            = link_to questions_path do
-              %i.glyphicon.glyphicon-question-sign
-              Fragenkatalog
-        %li.col-md-12
-          %h2
-            = link_to new_game_path do
-              %i.glyphicon.glyphicon-wrench
-              Spiel vorbereiten
-        %li.col-md-12
-          %h2
-            = link_to new_post_path do
-              %i.glyphicon.glyphicon-fire
-              News eintragen
+    %ul.nav.nav-pills.nav-stacked
+      %li.col-md-4
+        %h2
+          = link_to games_path do
+            %i.glyphicon.glyphicon-play
+            Spiele
+      %li.col-md-4
+        %h2
+          = link_to teams_path do
+            %i.glyphicon.glyphicon-user
+            Teams
+      %li.col-md-4
+        %h2
+          = link_to questions_path do
+            %i.glyphicon.glyphicon-question-sign
+            Fragenkatalog
+      %li.col-md-4
+        %h2
+          = link_to new_game_path do
+            %i.glyphicon.glyphicon-wrench
+            Spiel vorbereiten
+      %li.col-md-4
+        %h2
+          = link_to new_post_path do
+            %i.glyphicon.glyphicon-fire
+            News eintragen

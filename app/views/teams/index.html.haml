@@ -1,40 +1,41 @@
-%center
-  .head
+.row
+  .col-md-12
     %h1
       %strong
         %i.glyphicon.glyphicon-user
         Teams
-
-  %table.table.table-hover.table-striped
-    %tr.custom-head
-      %th.name Name
-      %th Gesamtscore
-      %th ... im letzten Spiel
-      %th Durchschnitt
-      %th
-    - collection.each do |team|
+.row
+  .col-md-12
+    %table.table.table-hover.table-striped
+      %tr.custom-head
+        %th.name Name
+        %th Gesamtscore
+        %th ... im letzten Spiel
+        %th Durchschnitt
+        %th
+      - collection.each do |team|
+        %tr
+          %td
+            %strong
+              = team.title
+          %td
+            .badge
+              = 0
+          %td
+            .badge
+              = 0
+          %td
+            .badge
+              2.7828
+          %td.actions
+            .pull-right
+              = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
+                %i.glyphicon.glyphicon-trash
       %tr
-        %td
-          %strong
-            = team.title
-        %td
-          .badge
-            = 0
-        %td
-          .badge
-            = 0
-        %td
-          .badge
-            2.7828
-        %td.actions
-          .pull-right
-            = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
-              %i.glyphicon.glyphicon-trash
-    %tr
-      %td{ colspan: 6 }
-        = link_to new_team_path do
-          %i.glyphicon.glyphicon-plus
-          Neues Team
+        %td{ colspan: 6 }
+          = link_to new_team_path do
+            %i.glyphicon.glyphicon-plus
+            Neues Team
 
 
-  = link_to 'zurück', menu_games_path, class: 'btn btn-primary'
+    = link_to 'zurück', menu_games_path, class: 'btn btn-primary'
