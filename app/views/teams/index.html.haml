@@ -23,10 +23,16 @@
               = team.total_score.to_s
           %td
             .badge
-              = Game.last.results.where(team_id: team.id).first.try(:total_score)
+              - if team.results.any?
+                = Game.last.results.where(team_id: team.id).first.try(:total_score)
+              - else
+                -
           %td
             .badge
-              = team.results.map(&:total_score).inject(0, :+).to_f / team.results.count.to_f
+              - if team.results.any?
+                = team.results.map(&:total_score).inject(0, :+).to_f / team.results.count.to_f
+              - else
+                -
           %td.actions
             .pull-right
               = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
