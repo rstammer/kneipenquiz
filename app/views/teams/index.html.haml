@@ -31,11 +31,12 @@
             .pull-right
               = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
                 %i.glyphicon.glyphicon-trash
-      %tr
-        %td{ colspan: 6 }
-          = link_to new_team_path do
-            %i.glyphicon.glyphicon-plus
-            Neues Team
 
+    = link_to new_team_path, class: 'btn btn-info' do
+      %i.glyphicon.glyphicon-plus
+      Neues Team
+    = link_to new_result_path, class: 'btn btn-success' do
+      %i.glyphicon.glyphicon-stats
+      Ergebnis für ein Spiel eintragen
 
     = link_to 'zurück', menu_games_path, class: 'btn btn-primary'
