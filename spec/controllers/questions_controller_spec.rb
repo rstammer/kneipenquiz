@@ -59,11 +59,11 @@ describe QuestionsController do
 
     it 'deletes category mapping when selected' do
       question = FactoryGirl.create :question
-      CategoryMapping.create question: question, category: @category
+      question.category_mappings.create category: @category
 
       expect do
-        patch :update, { id: question.id, category_mappings: { "Politik" => '0' } }
-      end.to change { question.category_mappings.count }
+        patch :update, { id: question.id, category_mappings: { "Politik" => "0" } }
+      end.to change { CategoryMapping.count }.by(-1)
     end
   end
 end

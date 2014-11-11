@@ -20,10 +20,10 @@ class CategoryMapping < ActiveRecord::Base
   end
 
   def self.unmap(question, title)
-    category = Category.where(title: title).first
+    category = Category.find_by title: title
     if category
-      category_mappings = CategoryMapping.where(category_id: category.id, question_id: question.id)
-      category_mappings.destroy_all
+      category_mappings = question.category_mappings.where(category_id: category.id)
+      category_mappings.delete_all
     end
   end
 
