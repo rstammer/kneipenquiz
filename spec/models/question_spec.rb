@@ -35,7 +35,7 @@ describe Question do
       end
 
       it 'is false when no category mapping present' do
-        expect(question.has_category? :tnetenbra).to be_false
+        expect(question.has_category? :tnetenbra).to be_falsey
       end
     end
   end
