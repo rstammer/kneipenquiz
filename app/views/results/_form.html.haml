@@ -1,0 +1,28 @@
+.col-md-12
+  .form-group
+    = f.association :game, label: false, collection: Game.all, label_method: :title, include_blank: false, class: 'form-control'
+.col-md-12
+  %table.table.table-striped
+    %thead
+      %tr
+        %td Team
+        %td Runde 1
+        %td Runde 2
+        %td Runde 3
+        %td Runde 4
+    %tbody
+    - teams.each do |team|
+      %tr
+        %td= team.title
+        %td
+          .form-group
+            = text_field_tag "team_#{team.id.to_s}_round_1"
+        %td
+          .form-group
+            = text_field_tag "team_#{team.id.to_s}_round_2"
+        %td
+          .form-group
+            = text_field_tag "team_#{team.id.to_s}_round_3"
+        %td
+          .form-group
+            = text_field_tag "team_#{team.id.to_s}_round_4"
