@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141104202739) do
+ActiveRecord::Schema.define(version: 20141111191754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,11 +68,11 @@ ActiveRecord::Schema.define(version: 20141104202739) do
   end
 
   create_table "results", force: true do |t|
-    t.integer "round_one"
-    t.integer "round_two"
-    t.integer "round_three"
-    t.integer "round_four"
-    t.integer "total_score"
+    t.float   "round_one"
+    t.float   "round_two"
+    t.float   "round_three"
+    t.float   "round_four"
+    t.float   "total_score"
     t.integer "team_id"
     t.integer "game_id"
   end
@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(version: 20141104202739) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "teams", force: true do |t|
-    t.string  "title"
-    t.integer "total_score"
+    t.string "title"
+    t.float  "total_score"
   end
 
   create_table "users", force: true do |t|
