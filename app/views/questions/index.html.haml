@@ -1,14 +1,11 @@
 .row
   .col-md-12
-    %center
-      .head
-        %h1
-          %strong Fragenkatalog
-
+    %h1
+      %strong Fragenkatalog
 .row
   .col-md-12
     = render 'search'
-
+  .col-md-12
     %table.table.table-hover.table-striped
       %tr.custom-head
         %th #
@@ -43,5 +40,5 @@
             %i.glyphicon.glyphicon-plus
             Neue Frage
 .row
-  %center
+  .col-md-12
     = link_to 'zurück', menu_games_path, class: 'btn btn-primary'

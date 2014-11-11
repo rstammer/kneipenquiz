@@ -1,6 +1,6 @@
-%div
-  .head
+.row
+  .col-md-12
     %h2
       %strong Frage editieren
-= simple_form_for resource, { id: 'question_form'} do |f|
-  = render 'form', { f: f }
+    = simple_form_for resource, { id: 'question_form'} do |f|
+      = render 'form', { f: f }

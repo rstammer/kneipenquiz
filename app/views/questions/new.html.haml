@@ -1,6 +1,6 @@
-%div
-  .head
-    %h2
-      %strong Neue Frage
-= simple_form_for resource, { id: 'question_form'} do |f|
-  = render 'form', { f: f }
+.row
+  %h2
+    %strong Neue Frage
+  .col-md-12
+    = simple_form_for resource, { id: 'question_form'} do |f|
+      = render 'form', { f: f }
