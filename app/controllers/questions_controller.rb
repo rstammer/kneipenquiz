@@ -10,9 +10,16 @@ class QuestionsController < ActionController::Base
   end
 
   def update
-    update!
-    add_autotags
-    build_category_mappings
+    update! do |success, failure|
+      success.html do
+        add_autotags
+        build_category_mappings
+        redirect_to questions_path, notice: 'Frage wurde erfolgreich editiert.'
+      end
+      failure.html do
+        render 'edit', alert: 'Konnte Frage nicht speichern!'
+      end
+    end
   end
 
 
@@ -28,7 +35,7 @@ class QuestionsController < ActionController::Base
   end
 
   def build_category_mappings
-    category_mappings = params[:category_mappings] || {}
+    category_mappings = params[:category_mappings].presence || {}
 
     Question::CATEGORIES.keys.each do |cm|
       if category_mappings[cm] == "1"
