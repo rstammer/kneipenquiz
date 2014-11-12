@@ -10,24 +10,24 @@
     %th
   - collection.each_with_index do |team, index|
     - result = team.results.find_by(game_id: game_id)
-    %tr
-      %td
-        = index+1
-      %td
-        %strong
-          = team.title
-      %td
-        = result.round_one.to_s
-      %td
-        = result.round_two.to_s
-      %td
-        = result.round_three.to_s
-      %td
-        = result.round_four.to_s
-      %td
-        = result.total_score.to_s
-      %td.actions
-        .pull-right
-          = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
-            %i.glyphicon.glyphicon-trash
-
+    - if result.present?
+      %tr
+        %td
+          = index+1
+        %td
+          %strong
+            = team.title
+        %td
+          = result.round_one.to_s
+        %td
+          = result.round_two.to_s
+        %td
+          = result.round_three.to_s
+        %td
+          = result.round_four.to_s
+        %td
+          = result.total_score.to_s
+        %td.actions
+          .pull-right
+            = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
+              %i.glyphicon.glyphicon-trash
