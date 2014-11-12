@@ -12,7 +12,7 @@ class TeamsController < ActionController::Base
   private
 
   def collection
-    @teams ||= Team.all
+    @teams ||= Team.all.order('total_score DESC')
   end
 
   def permitted_params
