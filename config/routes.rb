@@ -12,5 +12,8 @@ Kneipenquiz::Application.routes.draw do
   resources :category_mappings
   resources :questions
   resources :teams
-  resources :results, except: [:index]
+  resources :results, except: [:index, :edit, :update] do
+    get   :bulk_edit,        on: :collection
+    patch :bulk_update, on: :collection
+  end
 end

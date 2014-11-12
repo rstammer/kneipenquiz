@@ -1,0 +1,33 @@
+%table.table.table-hover.table-striped
+  %tr
+    %th Platzierung
+    %th Name
+    %th Runde 1
+    %th Runde 2
+    %th Runde 3
+    %th Runde 4
+    %th Gesamt
+    %th
+  - collection.each_with_index do |team, index|
+    - result = team.results.find_by(game_id: game_id)
+    %tr
+      %td
+        = index+1
+      %td
+        %strong
+          = team.title
+      %td
+        = result.round_one.to_s
+      %td
+        = result.round_two.to_s
+      %td
+        = result.round_three.to_s
+      %td
+        = result.round_four.to_s
+      %td
+        = result.total_score.to_s
+      %td.actions
+        .pull-right
+          = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
+            %i.glyphicon.glyphicon-trash
+

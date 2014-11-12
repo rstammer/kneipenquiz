@@ -4,7 +4,7 @@
       %strong Ergebnis editieren
 
   .col-md-12
-    = simple_form_for resource do |f|
+    = simple_form_for Game.find(params[:game]), url: '/results/bulk_update', method: :patch do |f|
       = render 'form', { f: f }
       .col-md-12
         = link_to 'zurück zum Haupmenü', menu_games_path, class: 'btn btn-warning'

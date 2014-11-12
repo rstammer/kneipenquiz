@@ -1,34 +1,33 @@
-%center
-  %button.btn.btn-large.btn-primary#fscr-button
-    %i.glyphicon.glyphicon-play
-    Präsentation starten
-
-.premessage
-  %h1
-    %center
-      %strong Gleich geht's los.
-
-#fscr-area
+.row
   .col-md-12
-    .slide
-      %center.slide-info
-        %h1
-          %strong= resource.title
-  .col-md-12
-    %ul.list-unstyled
-      - (1..4).each do |n|
-        %li
-          .slide
-            %center.slide-info
-              %h1
-                %strong= "Runde #{n}"
-          - (1..8).each do |k|
-            .slide
-              = render 'questions/question_without_answer', question: Question.for(resource, n, k)
-  .row
+    %button.btn.btn-large.btn-primary#fscr-button
+      %i.glyphicon.glyphicon-play
+      Vollbildmodus
+    %button.btn.btn-large.btn-primary#fscr-button
+      %i.glyphicon.glyphicon-file
+      Als PDF herunterladen (noch nicht implementiert)
+    %hr
+  #fscr-area
     .col-md-12
-      %center
-        = link_to 'zurück zum Haupmenü', menu_games_path, class: 'btn btn-info'
+      .slide
+        %center.slide-info
+          %h1
+            %strong= resource.title
+    .col-md-12
+      %ul.list-unstyled
+        - (1..4).each do |n|
+          %li
+            .slide
+              %center.slide-info
+                %h1
+                  %strong= "Runde #{n}"
+            - (1..8).each do |k|
+              .slide
+                = render 'questions/question_without_answer', question: Question.for(resource, n, k)
+    .row
+      .col-md-12
+        %center
+          = link_to 'zurück zum Haupmenü', menu_games_path, class: 'btn btn-info'
 
 :javascript
   var fh = FullscreenHandler.init();

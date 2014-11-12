@@ -6,43 +6,53 @@
         Teams
 .row
   .col-md-12
-    %table.table.table-hover.table-striped
-      %tr.custom-head
-        %th.name Name
-        %th Gesamtscore
-        %th im letzten Spiel
-        %th Durchschnitt
-        %th
-      - collection.each do |team|
+    = form_tag '/teams', method: :get, class: 'form-inline' do
+      .form-group
+        %label Ergebnisse für
+        = select_tag :game, options_for_select(options_for_games, params[:game]), class: 'form-control'
+        = submit_tag "Filter anwenden", name: nil, class: 'btn btn-success'
+.row
+  .col-md-12
+    - if params[:game].present?
+      = render 'game_result', game_id: params[:game]
+    - else
+      %table.table.table-hover.table-striped
         %tr
-          %td
-            %strong
-              = team.title
-          %td
-            .badge
+          %th Platzierung
+          %th Name
+          %th Gesamtscore aller Spiele
+          %th Durchschnitt
+          %th
+        - collection.each_with_index do |team, index|
+          %tr
+            %td
+              = index+1
+            %td
+              %strong
+                = team.title
+            %td
               = team.total_score.to_s
-          %td
-            .badge
-              - if team.results.any?
-                = Game.last.results.where(team_id: team.id).first.try(:total_score)
-              - else
-                -
-          %td
-            .badge
+            %td
               - if team.results.any?
                 = team.results.map(&:total_score).inject(0, :+).to_f / team.results.count.to_f
               - else
                 -
-          %td.actions
-            .pull-right
-              = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
-                %i.glyphicon.glyphicon-trash
+            %td.actions
+              .pull-right
+                = link_to team, method: :delete, data: { confirm: 'Bist Du sicher?' } do
+                  %i.glyphicon.glyphicon-trash
 
     = link_to new_team_path, class: 'btn btn-info' do
       %i.glyphicon.glyphicon-plus
       Neues Team
     = link_to new_result_path, class: 'btn btn-success' do
       %i.glyphicon.glyphicon-stats
-      Ergebnis für ein Spiel eintragen
+      Neues Ergebnis für ein Spiel eintragen
+
+    - if params[:game].present?
+      = link_to bulk_edit_results_path(game: params[:game]), class: 'btn btn-warning' do
+        %i.glyphicon.glyphicon-wrench
+        Angezeigtes Ergebnis bearbeiten
+
 
     = link_to 'zurück', menu_games_path, class: 'btn btn-primary'

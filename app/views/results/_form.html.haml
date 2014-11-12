@@ -1,6 +1,11 @@
 .col-md-12
-  .form-group
-    = select_tag :game_id, options_for_select(Game.all.reject{ |game| game.results.count > 0 }.map{ |game| [game.title, game.id] }, params[:game]), class: 'form-control'
+  - if params[:game].present?
+    %h4
+      Ergebnis für Spiel
+      = Game.find(params[:game].to_i).try(:title)
+  - else
+    .form-group
+      = select_tag :game_id, options_for_select(Game.all.reject{ |game| game.results.count > 0 }.map{ |game| [game.title, game.id] }, params[:game]), class: 'form-control'
 .col-md-12
   %table.table.table-striped
     %thead

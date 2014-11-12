@@ -1,33 +1,33 @@
-.col-md-12
-  %center
-    .head
-      %h1
-        %strong Spiel auswählen
+.row
+  .col-md-12
+    %h1
+      %strong Spiel auswählen
 
-.col-md-12
-  %table.table.table-hover.table-striped
-    %tr.custom-head
-      %th Datum
-      %th Motto
-      %th
-      %th
-    - collection.each do |game|
-      %tr
-        %td
-          %strong= game.expected_date.strftime("%d.%m.%Y")
-        %td
-          = game.title
-        %td
-          = link_to edit_game_path(game) do
-            %i.glyphicon.glyphicon-pencil
-          = link_to game_path(game), method: :delete, data: { confirm: 'Bist Du sicher?' } do
-            %i.glyphicon.glyphicon-trash
-        %td
-          .pull-right
-            = link_to game_path(game) do
-              %i.glyphicon.glyphicon-play
-              zur Präsentation
+.row
+  .col-md-12
+    %table.table.table-hover.table-striped
+      %tr.custom-head
+        %th Datum
+        %th Motto
+        %th
+        %th
+      - collection.each do |game|
+        %tr
+          %td
+            %strong= game.expected_date.strftime("%d.%m.%Y")
+          %td
+            = game.title
+          %td
+            = link_to edit_game_path(game) do
+              %i.glyphicon.glyphicon-pencil
+            = link_to game_path(game), method: :delete, data: { confirm: 'Bist Du sicher?' } do
+              %i.glyphicon.glyphicon-trash
+          %td
+            .pull-right
+              = link_to game_path(game) do
+                %i.glyphicon.glyphicon-play
+                zur Präsentation
 
-.col-md-12
-  %center
+.row
+  .col-md-12
     = link_to 'zurück', menu_games_path , class: 'btn btn-large btn-success'
