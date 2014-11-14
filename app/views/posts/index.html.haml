@@ -1,8 +1,8 @@
 .row
-  .col-md-6.col-centered
-    %h1
-      %strong Zimt&Zunder-Kneipenquiz
-
+  .col-md-12
+    .col-md-5.col-centered
+      .logo-index
+        = image_tag('logo_water.png')
 - collection.each do |post|
   .row
     .col-md-12
@@ -20,11 +20,3 @@
     .col-md-12.col-centered
       %p
         = post.content
-
-.footer
-  .row
-    .col-md-2.col-centered
-      %strong
-      = link_to 'source', 'http://github.com/neumanrq/kneipenquiz'
-      | © rbn 2014
-

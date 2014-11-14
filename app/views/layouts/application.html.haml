@@ -5,18 +5,17 @@
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
-    .pull-right
-      - if user_signed_in?
-        = link_to 'Aktuelles', '/', class: 'btn btn-mini'
-        = link_to 'Backend', menu_games_path, class: 'btn btn-mini'
-        = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-mini'
-      - else
-        = link_to 'Login', backend_path, class: 'btn btn-mini'
+  %body.body
     .container
-      = yield
-      - if false
-        %center.jumbotron
-          %h1 Sorry - aber hier ist Geheimniskrämerei.
-  = render 'shared/flash', notice: notice, alert: alert
+      .pull-right
+        - if user_signed_in?
+          = link_to 'Aktuelles', '/', class: 'btn btn-mini'
+          = link_to 'Backend', menu_games_path, class: 'btn btn-mini'
+          = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-mini'
+        - else
+          = link_to 'Login', backend_path, class: 'btn btn-mini'
+
+      .content-wrapper
+        = yield
+        -#-= render 'shared/flash', notice: notice, alert: alert
 

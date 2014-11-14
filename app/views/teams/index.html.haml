@@ -1,9 +1,4 @@
-.row
-  .col-md-12
-    %h1
-      %strong
-        %i.glyphicon.glyphicon-user
-        Teams
+= render 'shared/headline', headline: 'Teams'
 .row
   .col-md-12
     = form_tag '/teams', method: :get, class: 'form-inline' do
