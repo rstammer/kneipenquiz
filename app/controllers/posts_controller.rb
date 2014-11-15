@@ -17,7 +17,6 @@ class PostsController < ActionController::Base
     end
   end
 
-
   private
 
   def permitted_params

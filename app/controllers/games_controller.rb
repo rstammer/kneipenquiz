@@ -16,7 +16,6 @@ class GamesController < ActionController::Base
   def menu
   end
 
-
   private
 
   def collection

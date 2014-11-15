@@ -1,8 +1,9 @@
 Kneipenquiz::Application.routes.draw do
   devise_for :users
-  root to: 'posts#index'
+  root to: 'public#start'
 
   get '/backend', to: 'games#index', as: :backend
+  get '/reglement', to: 'public#reglement', as: :reglement
 
   resources :games do
     get :menu, on: :collection

@@ -1,0 +1,21 @@
+.row
+  .col-md-12
+    .col-md-5.col-centered
+      .logo-water
+        = image_tag('logo_water.png')
+.row
+  .col-md-12
+    - if user_signed_in?
+      = link_to post_path(@post), method: :delete, data: { confirm: 'Bist Du sicher?' } do
+        %i.glyphicon.glyphicon-trash
+      = link_to edit_post_path(@post) do
+        %i.glyphicon.glyphicon-pencil
+
+  .col-md-12
+    %h6= @post.created_at
+  .col-md-12.col-centered
+    %h2
+      %strong= @post.title
+  .col-md-12.col-centered
+    %p
+      = @post.content
