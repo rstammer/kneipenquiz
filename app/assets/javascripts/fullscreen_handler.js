@@ -49,6 +49,7 @@ var FullscreenHandler = (function(){
 
             fscrButton.onclick = function() {
 
+              fscrArea.style.display = 'block'
               runFullscreen(fscrArea);
 
             };

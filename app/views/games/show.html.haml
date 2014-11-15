@@ -1,33 +1,24 @@
 .row
   .col-md-12
-    %button.btn.btn-large.btn-primary#fscr-button
-      %i.glyphicon.glyphicon-play
-      Vollbildmodus
-    %button.btn.btn-large.btn-primary#fscr-button
-      %i.glyphicon.glyphicon-file
-      Als PDF herunterladen (noch nicht implementiert)
-    %hr
-  #fscr-area
-    .col-md-12
-      .slide
-        %center.slide-info
-          %h1
-            %strong= resource.title
-    .col-md-12
-      %ul.list-unstyled
-        - (1..4).each do |n|
-          %li
-            .slide
-              %center.slide-info
-                %h1
-                  %strong= "Runde #{n}"
-            - (1..8).each do |k|
-              .slide
-                = render 'questions/question_without_answer', question: Question.for(resource, n, k)
-    .row
-      .col-md-12
-        %center
-          = link_to 'zurück zum Haupmenü', menu_games_path, class: 'btn btn-info'
+    %h4
+      %strong
+        Titel
+      = resource.title
+.row
+  .col-md-12
+    %h4
+      %strong
+        Datum
+      = resource.expected_date
 
+.row
+  .very-large-button
+    %button.btn.btn-large.btn-success#fscr-button
+      %i.glyphicon.glyphicon-play
+      Start
+
+.row
+  #fscr-area{ style: 'display: none;' }
+    .slide
 :javascript
   var fh = FullscreenHandler.init();
