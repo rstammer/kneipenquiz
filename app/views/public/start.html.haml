@@ -12,7 +12,7 @@
         %i.glyphicon.glyphicon-pencil
 
   .col-md-12
-    %h6= @post.created_at
+    %h6= @post.created_at.strftime('%d.%m.%Y')
   .col-md-12.col-centered
     %h2
       %strong= @post.title
