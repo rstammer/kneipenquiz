@@ -1,15 +1,17 @@
 .row
   .col-md-12
-    %h4
+    %h6
       %strong
-        Titel
+        Titel:
+    %h4
       = resource.title
 .row
   .col-md-12
-    %h4
+    %h6
       %strong
-        Datum
-      = resource.expected_date
+        Geplantes Datum:
+    %h4
+      = resource.expected_date.strftime('%d.%m.%Y')
 
 .row
   .very-large-button
@@ -17,8 +19,9 @@
       %i.glyphicon.glyphicon-play
       Start
 
-.row
-  #fscr-area{ style: 'display: none;' }
-    .slide
+#fscr-area{ style: 'display: none;' }
+  .row#current_slide
+    = render 'presentation/title_page', resource: resource
+
 :javascript
   var fh = FullscreenHandler.init();

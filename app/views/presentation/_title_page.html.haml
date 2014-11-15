@@ -1,0 +1,10 @@
+.slide-dark-beige
+  .logo-water-title-page
+    = image_tag('logo_water.png')
+  .row
+    .col-md-12
+      %h1= "\"#{resource.title}\""
+  .row
+    .col-md-12
+      .col-md-3.col-centered
+        %h2= "#{Time.zone.now.strftime('%d.%m.%Y')}"

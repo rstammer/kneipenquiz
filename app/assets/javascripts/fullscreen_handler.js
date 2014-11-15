@@ -43,6 +43,7 @@ var FullscreenHandler = (function(){
 
                 VendorPrefixMethod(element,"RequestFullScreen");
             }
+
         }
 
         if(fscrButton) {
@@ -50,6 +51,7 @@ var FullscreenHandler = (function(){
             fscrButton.onclick = function() {
 
               fscrArea.style.display = 'block'
+
               runFullscreen(fscrArea);
 
             };
