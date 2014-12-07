@@ -16,6 +16,12 @@ class GamesController < ActionController::Base
   def menu
   end
 
+  def slides
+    respond_to do |format|
+      format.js { render text: params[:slide_number].to_s }
+    end
+  end
+
   private
 
   def collection

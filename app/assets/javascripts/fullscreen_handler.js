@@ -5,8 +5,12 @@ var FullscreenHandler = (function(){
   var control = {};
 
   control.init = function(){
-        var fscrArea = document.getElementById("fscr-area");
-        var fscrButton = document.getElementById("fscr-button");
+        var fscrArea     = document.getElementById("fscr-area"),
+            fscrButton   = document.getElementById("fscr-button"),
+            nextButton   = document.getElementById("next-button"),
+            currentSlide = document.getElementById("current_slide");
+
+        nextButton.onclick = getNextSlide();
 
         // Chooses the correct browser prefix for HTML5-Fullscreen-call
         var vendor_prefix = ["moz", "webkit", "ms", "o", ""];
@@ -27,33 +31,26 @@ var FullscreenHandler = (function(){
             }
         }
 
-        function reloadPageByAjax() {
-            $.getJSON("http://www.google.de");
+        function getNextSlide(number) {
+            $.get("/games/1/slides/1.js", function(data){
+                currentSlide.innerHTML = data
+            });
         }
 
         function runFullscreen(element) {
-
             if (VendorPrefixMethod(document, "FullScreen") || VendorPrefixMethod(document, "IsFullScreen")) {
-
                 VendorPrefixMethod(document, "CancelFullScreen");
-
             }
 
             else {
-
                 VendorPrefixMethod(element,"RequestFullScreen");
             }
-
         }
 
         if(fscrButton) {
-
             fscrButton.onclick = function() {
-
-              fscrArea.style.display = 'block'
-
-              runFullscreen(fscrArea);
-
+                fscrArea.style.display = 'block'
+                runFullscreen(fscrArea);
             };
         };
   };
@@ -61,4 +58,3 @@ var FullscreenHandler = (function(){
   return control;
 
 }());
-

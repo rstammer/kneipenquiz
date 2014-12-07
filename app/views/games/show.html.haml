@@ -24,4 +24,4 @@
     = render 'presentation/title_page', resource: resource
 
 :javascript
-  var fh = FullscreenHandler.init();
+  (function() { FullscreenHandler.init(); }());

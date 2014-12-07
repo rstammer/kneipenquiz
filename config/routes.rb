@@ -9,6 +9,8 @@ Kneipenquiz::Application.routes.draw do
     get :menu, on: :collection
   end
 
+  get '/games/:game_id/slides/:slide_number', to: 'games#slides'
+
   resources :posts
   resources :category_mappings
   resources :questions
