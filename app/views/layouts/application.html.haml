@@ -15,8 +15,5 @@
           = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-mini'
         - else
           = link_to 'Login', backend_path, class: 'btn btn-mini'
-
       .content-wrapper
         = yield
-        -#-= render 'shared/flash', notice: notice, alert: alert
-

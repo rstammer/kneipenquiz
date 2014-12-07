@@ -28,13 +28,22 @@
     top: 480px
     left: 800px
 
+::-webkit-scrollbar  
+  display: none
+
 .content-wrapper
+  overflow: -moz-scrollbars-none
+  overflow-x: hidden
+  overflow-y: scroll
+  width: 930px 
   margin-left: 40px
+  margin-right: 20px
 
 .container
-  width: 995px
-  height: 650px
-  overflow: scroll
+  overflow-x: hidden
+  overflow-y: scroll
+  width: 1020px
+  height: 680px
   border-radius: 15px
   margin: 30px auto
   padding: 20px
