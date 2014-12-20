@@ -8,9 +8,10 @@ var FullscreenHandler = (function(){
         var fscrArea     = document.getElementById("fscr-area"),
             fscrButton   = document.getElementById("fscr-button"),
             nextButton   = document.getElementById("next-button"),
-            currentSlide = document.getElementById("current_slide");
+            currentSlide = document.getElementById("current_slide"),
+            getNextSlide;
 
-        nextButton.onclick = getNextSlide();
+        nextButton.onclick = function() { getNextSlide(); };
 
         // Chooses the correct browser prefix for HTML5-Fullscreen-call
         var vendor_prefix = ["moz", "webkit", "ms", "o", ""];
@@ -31,7 +32,7 @@ var FullscreenHandler = (function(){
             }
         }
 
-        function getNextSlide(number) {
+        var getNextSlide = function() {
             $.get("/games/1/slides/1.js", function(data){
                 currentSlide.innerHTML = data
             });
